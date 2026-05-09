@@ -1,15 +1,16 @@
 ﻿using BankingSystem.Core.Data;
 using BankingSystem.Core.Enums;
 using BankingSystem.Core.Services;
-using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.Core.Services;
+using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.WPF.Commands;
 using BankingSystem.WPF.Helpers;
-using BankingSystem.WPF.ViewModels.Base;
+using BankingSystem.WPF.ViewModels.Admin;
 using BankingSystem.WPF.ViewModels.Auth;
+using BankingSystem.WPF.ViewModels.Base;
 using BankingSystem.WPF.ViewModels.Customers;
 using BankingSystem.WPF.ViewModels.Dashboard;
-using BankingSystem.WPF.ViewModels.Admin;
+using BankingSystem.WPF.ViewModels.Services;
 using System.Windows.Input;
 
 namespace BankingSystem.WPF.ViewModels.Accounts
@@ -20,7 +21,8 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         private readonly ILoggerService _logger;
         private readonly ICustomerService _customerService;
         private readonly IAccountService _accountService;
-
+        private readonly ICertificateService _certificateService;
+        private readonly ICreditCardService _creditCardService;
         private object _currentView;
 
         public object CurrentView
@@ -34,6 +36,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         public ICommand ShowAccountsCommand { get; }
         public ICommand ShowLogoutCommand { get; }
         public ICommand ShowLogsCommand { get; }
+        public ICommand ShowServicesCommand { get; }
 
         public bool IsLoggedIn => AppSession.CurrentRole != null;
         public bool IsCustomer => AppSession.CurrentRole == UserRole.Customer;
@@ -45,6 +48,9 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             _logger = new LoggingService();
             _customerService = new CustomerService(_context, _logger);
             _accountService = new AccountService(_context, _logger);
+            _certificateService = new CertificateService(_context, _logger);
+            _creditCardService = new CreditCardService(_context, _logger);
+
             AppSession.RoleChanged += OnRoleChanged;
 
             ShowDashboardCommand = new RelayCommand(_ => ShowDashboard());
@@ -52,6 +58,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             ShowAccountsCommand = new RelayCommand(_ => ShowAccounts());
             ShowLogoutCommand = new RelayCommand(_ => Logout());
             ShowLogsCommand = new RelayCommand(_ => ShowLogs());
+            ShowServicesCommand = new RelayCommand(_ => ShowServices());
 
             // default landing page AFTER login
             ShowDashboard();
@@ -78,6 +85,14 @@ namespace BankingSystem.WPF.ViewModels.Accounts
                     ShowNewCustomer(); // ✅ FIXED FLOW
                     break;
             }
+        }
+        private void ShowServices()
+        {
+            CurrentView = new ServicesViewModel(
+                _certificateService,
+                _creditCardService,
+                _context
+            );
         }
 
         // ================= ROLE CHANGE =================

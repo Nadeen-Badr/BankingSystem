@@ -45,9 +45,8 @@ namespace BankingSystem.Core.Data
 
             // CUSTOMER → CREDIT CARD (1 : 1)
             modelBuilder.Entity<Customer>()
-                .HasOptional(c => c.CreditCard)
-                .WithRequired(cc => cc.Customer);
-
+     .HasOptional(c => c.CreditCard)
+     .WithRequired(cc => cc.Customer);
             // ACCOUNT → TRANSACTIONS (1 : Many)
             modelBuilder.Entity<Account>()
                 .HasMany(a => a.Transactions)

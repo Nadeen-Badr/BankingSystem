@@ -20,41 +20,45 @@ namespace BankingSystem.Core.Services
             _logger = logger;
         }
 
-        public Certificate BuyCertificate(int customerId, Certificate certificate)
+        public Certificate BuyCertificate(int customerId, decimal price, CertificatePeriod period)
         {
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
                 throw new Exception("Customer not found");
 
-            if (!IsValidPrice(certificate.Price))
-                throw new Exception("Invalid certificate price");
+            ValidatePrice(price);
+            ValidatePeriod(period);
 
-            certificate.InterestRate = GetInterestRate(certificate.Period);
-
-            certificate.CustomerId = customerId;
+            var certificate = new Certificate
+            {
+                CustomerId = customerId,
+                Price = price,
+                Period = period,
+                InterestRate = GetInterestRate(period),
+                StartDate = DateTime.Now
+            };
 
             _context.Certificates.Add(certificate);
             _context.SaveChanges();
 
-            _logger.Log($"BUY_CERTIFICATE | Customer:{customerId} | Price:{certificate.Price}");
+            _logger.Log($"BUY_CERTIFICATE | Customer:{customerId} | Price:{price}");
 
             return certificate;
         }
-
-        public void UpdateCertificate(int certificateId, Certificate certificate)
+        public void UpdateCertificate(int certificateId, decimal price, CertificatePeriod period)
         {
             var existing = _context.Certificates.Find(certificateId);
 
             if (existing == null)
                 throw new Exception("Certificate not found");
 
-            if (!IsValidPrice(certificate.Price))
-                throw new Exception("Invalid certificate price");
+            ValidatePrice(price);
+            ValidatePeriod(period);
 
-            existing.Price = certificate.Price;
-            existing.Period = certificate.Period;
-            existing.InterestRate = GetInterestRate(certificate.Period);
+            existing.Price = price;
+            existing.Period = period;
+            existing.InterestRate = GetInterestRate(period);
 
             _context.SaveChanges();
 
@@ -76,9 +80,16 @@ namespace BankingSystem.Core.Services
 
         // ---------------- PRIVATE BUSINESS RULES ----------------
 
-        private bool IsValidPrice(decimal price)
+        private void ValidatePrice(decimal price)
         {
-            return price >= 1000 && price % 1000 == 0;
+            if (price < 1000 || price % 1000 != 0)
+                throw new Exception("Price must be >= 1000 and multiple of 1000");
+        }
+
+        private void ValidatePeriod(CertificatePeriod period)
+        {
+            if (!Enum.IsDefined(typeof(CertificatePeriod), period))
+                throw new Exception("Invalid certificate period");
         }
 
         private decimal GetInterestRate(CertificatePeriod period)

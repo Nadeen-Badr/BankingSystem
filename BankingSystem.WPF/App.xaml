@@ -16,6 +16,8 @@
              xmlns:vmnewCust="clr-namespace:BankingSystem.WPF.ViewModels.Customers"
              xmlns:viewOldCust="clr-namespace:BankingSystem.WPF.Views.Customers"
              xmlns:vmOldCust="clr-namespace:BankingSystem.WPF.ViewModels.Customers"
+             xmlns:vmServices="clr-namespace:BankingSystem.WPF.ViewModels.Services"
+             xmlns:viewServices="clr-namespace:BankingSystem.WPF.Views.Services"
              StartupUri="Views/Auth/AuthWindow.xaml">
 
     <Application.Resources>
@@ -62,6 +64,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vmCust:CustomerDashboardViewModel}">
                 <viewCust:CustomerDashboardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmServices:ServicesViewModel}">
+                <viewServices:ServicesView/>
             </DataTemplate>
         </ResourceDictionary>
 

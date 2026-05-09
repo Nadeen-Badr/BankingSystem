@@ -19,6 +19,6 @@ namespace BankingSystem.Core.Models
         // Navigation Properties
         public virtual List<Account> Accounts { get; set; }
         public virtual List<Certificate> Certificates { get; set; }
-        public virtual CreditCard CreditCard { get; set; }
+        public CreditCard CreditCard { get; set; }
     }
 }

@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="BankingSystem.WPF.Views.Services.ServicesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource BackgroundBrush}">
+
+    <Grid Margin="20">
+
+        <!-- TITLE -->
+        <TextBlock Text="Services"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   Margin="0,0,0,20"/>
+
+        <!-- TABS -->
+        <TabControl Margin="0,50,0,0">
+
+            <!-- ================= CERTIFICATES ================= -->
+            <TabItem Header="Certificates">
+
+                <Grid Margin="10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- LEFT: LIST -->
+                    <Border Style="{StaticResource DashboardCard}" Margin="0,0,10,0">
+
+                        <StackPanel>
+
+                            <TextBlock Text="My Certificates"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,10"/>
+
+                            <ListBox ItemsSource="{Binding Certificates}"
+         SelectedItem="{Binding SelectedCertificate}">
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Padding="10" Margin="5"
+                    Background="{StaticResource SurfaceBrush}">
+
+                                            <StackPanel>
+
+                                                <TextBlock Text="{Binding Id}" />
+                                                <TextBlock Text="{Binding Price, StringFormat=Price: {0} EGP}" />
+                                                <TextBlock Text="{Binding Period}" />
+                                                <TextBlock Text="{Binding InterestRate, StringFormat=Rate: {0:P}}" />
+
+                                            </StackPanel>
+
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+
+                            </ListBox>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <!-- RIGHT: ACTIONS -->
+                    <Border Grid.Column="1"
+                            Style="{StaticResource DashboardCard}">
+
+                        <StackPanel>
+
+                            <TextBlock Text="Certificate Actions"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,15"/>
+
+                            <TextBlock Text="Price" Foreground="White"/>
+                            <TextBox Text="{Binding CertificatePrice}" Margin="0,5"/>
+
+                            <TextBlock Text="Period" Foreground="White" Margin="0,10,0,0"/>
+
+                            <ComboBox ItemsSource="{Binding Periods}"
+          SelectedItem="{Binding SelectedPeriod}" />
+
+                            <Button Content="Buy Certificate"
+                                    Command="{Binding BuyCertificateCommand}"
+                                    Margin="0,10"/>
+
+                            <Button Content="Update Certificate"
+                                    Command="{Binding UpdateCertificateCommand}"
+                                    Margin="0,5"/>
+
+                            <Button Content="Delete Certificate"
+                                    Command="{Binding DeleteCertificateCommand}"
+                                    Margin="0,5"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </Grid>
+
+            </TabItem>
+
+            <!-- ================= CREDIT CARD ================= -->
+            <TabItem Header="Credit Card" Height="22" Margin="-2,0,-2,0" VerticalAlignment="Bottom">
+
+                <Grid Margin="10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- LEFT: CARD INFO -->
+                    <Border Style="{StaticResource DashboardCard}" Margin="0,0,10,0">
+
+                        <StackPanel>
+
+                            <TextBlock Text="My Credit Card"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,10"/>
+
+                            <TextBlock Text="{Binding CardInfo}"
+                                       Foreground="White"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <!-- RIGHT: ACTIONS -->
+                    <Border Grid.Column="1"
+                            Style="{StaticResource DashboardCard}">
+
+                        <StackPanel>
+
+                            <TextBlock Text="Credit Card Actions"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,15"/>
+
+                            <TextBlock Text="Cash Limit" Foreground="White"/>
+                            <TextBox Text="{Binding CreditLimit}" Margin="0,5"/>
+
+                            <Button Content="Create Card"
+                                    Command="{Binding CreateCardCommand}"
+                                    Margin="0,10"/>
+
+                            <Button Content="Update Limit"
+                                    Command="{Binding UpdateLimitCommand}"
+                                    Margin="0,5"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+
+</UserControl>

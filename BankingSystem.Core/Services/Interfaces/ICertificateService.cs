@@ -1,4 +1,5 @@
-﻿using BankingSystem.Core.Models;
+﻿using BankingSystem.Core.Enums;
+using BankingSystem.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ namespace BankingSystem.Core.Services.Interfaces
 {
     public interface ICertificateService
     {
-        Certificate BuyCertificate(int customerId, Certificate certificate);
-        void UpdateCertificate(int certificateId, Certificate certificate);
+        Certificate BuyCertificate(int customerId, decimal price, CertificatePeriod period);
+
+        void UpdateCertificate(int certificateId, decimal price, CertificatePeriod period);
+
         void DeleteCertificate(int certificateId);
     }
 }

@@ -73,9 +73,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\CertificateService.cs" />
+    <Compile Include="Services\CreditCardService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\Interfaces\IAccountService.cs" />
     <Compile Include="Services\Interfaces\ICertificateService.cs" />
+    <Compile Include="Services\Interfaces\ICreditCardService.cs" />
     <Compile Include="Services\Interfaces\ICustomerService.cs" />
     <Compile Include="Services\Interfaces\ILoggerService.cs" />
     <Compile Include="Services\LoggingService.cs" />
