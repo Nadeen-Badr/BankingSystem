@@ -9,8 +9,14 @@ namespace BankingSystem.Core.Services.Interfaces
 {
     public interface IAccountService
     {
+        Account CreateSavingAccount(int customerId);
+        Account CreateSalaryAccount(int customerId);
+
         void Deposit(int accountId, decimal amount);
         void Withdraw(int accountId, decimal amount);
-        List<Account> GetAllAccounts();
+
+        void CloseAccount(int accountId);
+
+        List<Account> GetAccountsByCustomer(int customerId);
     }
 }

@@ -16,34 +16,38 @@
 
         <!-- SIDEBAR -->
         <StackPanel Grid.Column="0"
-                    Background="{StaticResource PrimaryBrush}"
-                   Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolToVisibility}}">
+            Background="{StaticResource PrimaryBrush}"
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolToVisibility}}">
 
             <TextBlock Text="BANK SYSTEM"
-                       Foreground="White"
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Margin="5,15"/>
+               Foreground="White"
+               FontSize="18"
+               FontWeight="Bold"
+               Margin="5,15"/>
+
+            <!-- COMMON -->
+            <Button Content="Dashboard"
+            Command="{Binding ShowDashboardCommand}"/>
 
             <!-- ADMIN ONLY -->
-            <Button Content="Dashboard"
-            Command="{Binding ShowDashboardCommand}"
-           />
-
             <Button Content="View Logs"
             Command="{Binding ShowLogsCommand}"
             Visibility="{Binding IsAdmin, Converter={StaticResource BoolToVisibility}}"/>
 
             <!-- CUSTOMER ONLY -->
-            <Button Content="Customers"
-            Command="{Binding ShowCustomersCommand}"
-            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
-
             <Button Content="Accounts"
             Command="{Binding ShowAccountsCommand}"
             Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
 
-            <!-- COMMON -->
+            <Button Content="Services"
+            Command="{Binding ShowServicesCommand}"
+            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
+
+            <Button Content="Profile"
+            Command="{Binding ShowProfileCommand}"
+            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
+
+            <!-- LOGOUT -->
             <Button Content="Logout"
             Command="{Binding ShowLogoutCommand}"
             Margin="5,20,5,0"/>

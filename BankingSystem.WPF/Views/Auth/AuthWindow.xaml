@@ -1,11 +1,27 @@
 ﻿<Window x:Class="BankingSystem.WPF.Views.Auth.AuthWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Bank Login"
+        Title="Banking System"
         Height="600"
         Width="900"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
 
-    <ContentControl Content="{Binding CurrentView}"/>
+    <Grid>
+
+        <!-- Center Container -->
+        <Border Width="400"
+                Padding="30"
+                Background="{StaticResource SurfaceBrush}"
+                CornerRadius="15"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+               >
+
+            <ContentControl Content="{Binding CurrentView}"/>
+
+        </Border>
+
+    </Grid>
 
 </Window>

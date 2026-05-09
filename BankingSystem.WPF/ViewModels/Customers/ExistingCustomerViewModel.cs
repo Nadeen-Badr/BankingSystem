@@ -44,7 +44,6 @@ namespace BankingSystem.WPF.ViewModels.Customers
                 return;
 
             AppSession.SetCustomer(SelectedCustomer);
-            AppSession.SetRole(UserRole.Customer);
 
             CustomerLoggedIn?.Invoke();
         }

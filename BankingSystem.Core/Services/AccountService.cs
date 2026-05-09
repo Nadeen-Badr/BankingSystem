@@ -76,5 +76,66 @@ namespace BankingSystem.Core.Services
         {
             return _context.Accounts.ToList();
         }
+        public Account CreateSavingAccount(int customerId)
+        {
+            var customer = _context.Customers.Find(customerId);
+
+            if (customer == null)
+                throw new Exception("Customer not found");
+
+            var account = new SavingAccount
+            {
+                CustomerId = customerId,
+                AccountType = AccountType.Saving,
+                Balance = 0
+            };
+
+            _context.Accounts.Add(account);
+            _context.SaveChanges();
+
+            _logger.Log($"CREATE_SAVING_ACCOUNT | Customer:{customerId}");
+
+            return account;
+        }
+        public Account CreateSalaryAccount(int customerId)
+        {
+            var customer = _context.Customers.Find(customerId);
+
+            if (customer == null)
+                throw new Exception("Customer not found");
+
+            var account = new SalaryAccount
+            {
+                CustomerId = customerId,
+                AccountType = AccountType.Salary,
+                Balance = 0
+            };
+
+            _context.Accounts.Add(account);
+            _context.SaveChanges();
+
+            _logger.Log($"CREATE_SALARY_ACCOUNT | Customer:{customerId}");
+
+            return account;
+        }
+        public void CloseAccount(int accountId)
+        {
+            var account = _context.Accounts.Find(accountId);
+
+            if (account == null)
+                throw new Exception("Account not found");
+
+            _context.Accounts.Remove(account);
+            _context.SaveChanges();
+
+            _logger.Log($"CLOSE_ACCOUNT | Account:{accountId}");
+        }
+        public List<Account> GetAccountsByCustomer(int customerId)
+        {
+            return _context.Accounts
+                .Include("Transactions")
+                .Where(a => a.CustomerId == customerId)
+                .ToList();
+        }
     }
 }

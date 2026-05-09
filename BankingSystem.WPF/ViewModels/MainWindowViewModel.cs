@@ -19,6 +19,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         private readonly BankingDbContext _context;
         private readonly ILoggerService _logger;
         private readonly ICustomerService _customerService;
+        private readonly IAccountService _accountService;
 
         private object _currentView;
 
@@ -43,7 +44,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             _context = new BankingDbContext();
             _logger = new LoggingService();
             _customerService = new CustomerService(_context, _logger);
-
+            _accountService = new AccountService(_context, _logger);
             AppSession.RoleChanged += OnRoleChanged;
 
             ShowDashboardCommand = new RelayCommand(_ => ShowDashboard());
@@ -88,18 +89,20 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         }
 
         // ================= NAVIGATION =================
-       
+
         private void ShowDashboard()
         {
-            if (AppSession.CurrentCustomer != null)
-            {
-                // customer dashboard
-                CurrentView = new CustomerDashboardViewModel(_customerService);
-            }
-        
-            else
+            if (AppSession.CurrentRole == UserRole.Admin)
             {
                 CurrentView = new DashboardViewModel();
+            }
+            else if (AppSession.CurrentRole == UserRole.Customer)
+            {
+                CurrentView = new CustomerDashboardViewModel(_customerService);
+            }
+            else
+            {
+                ShowLogin();
             }
         }
         private void ShowCustomers()
@@ -109,7 +112,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
 
         private void ShowAccounts()
         {
-            CurrentView = new AccountsViewModel();
+            CurrentView = new AccountsViewModel(_accountService);
         }
 
         private void ShowLogs()

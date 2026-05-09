@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BankingSystem.Core.Data;
-using BankingSystem.Core.Models;
-using BankingSystem.Core.Services;
+﻿using BankingSystem.Core.Models;
+using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.WPF.Commands;
+using BankingSystem.WPF.Helpers;
 using BankingSystem.WPF.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -16,57 +10,95 @@ namespace BankingSystem.WPF.ViewModels.Accounts
 {
     public class AccountsViewModel : ViewModelBase
     {
-        private readonly AccountService _accountService;
+        private readonly IAccountService _accountService;
 
         public ObservableCollection<Account> Accounts { get; set; }
 
-        private int _accountId;
-        private decimal _amount;
-
-        public int AccountId
+        private Account _selectedAccount;
+        public Account SelectedAccount
         {
-            get => _accountId;
-            set => SetProperty(ref _accountId, value);
+            get => _selectedAccount;
+            set => SetProperty(ref _selectedAccount, value);
         }
-
+        private decimal _amount;
         public decimal Amount
         {
             get => _amount;
             set => SetProperty(ref _amount, value);
         }
-
+        public ICommand LoadAccountsCommand { get; }
+        public ICommand CreateSavingCommand { get; }
+        public ICommand CreateSalaryCommand { get; }
         public ICommand DepositCommand { get; }
         public ICommand WithdrawCommand { get; }
+        public ICommand CloseAccountCommand { get; }
 
-        public AccountsViewModel()
+        public AccountsViewModel(IAccountService accountService)
         {
-            var context = new BankingDbContext();
-            var logger = new LoggingService();
+            _accountService = accountService;
 
-            _accountService = new AccountService(context, logger);
+            Accounts = new ObservableCollection<Account>();
 
-            LoadAccounts();
-
+            LoadAccountsCommand = new RelayCommand(_ => LoadAccounts());
+            CreateSavingCommand = new RelayCommand(_ => CreateSaving());
+            CreateSalaryCommand = new RelayCommand(_ => CreateSalary());
             DepositCommand = new RelayCommand(_ => Deposit());
             WithdrawCommand = new RelayCommand(_ => Withdraw());
+            CloseAccountCommand = new RelayCommand(_ => CloseAccount());
+
+            LoadAccounts();
         }
 
+        // ================= LOAD =================
         private void LoadAccounts()
         {
-            Accounts = new ObservableCollection<Account>(
-                _accountService.GetAllAccounts()
-            );
+            if (AppSession.CurrentCustomerId == null)
+                return;
+
+            var data = _accountService.GetAccountsByCustomer(AppSession.CurrentCustomerId.Value);
+
+            Accounts.Clear();
+
+            foreach (var acc in data)
+                Accounts.Add(acc);
         }
 
+        // ================= CREATE =================
+        private void CreateSaving()
+        {
+            _accountService.CreateSavingAccount(AppSession.CurrentCustomerId.Value);
+            LoadAccounts();
+        }
+
+        private void CreateSalary()
+        {
+            _accountService.CreateSalaryAccount(AppSession.CurrentCustomerId.Value);
+            LoadAccounts();
+        }
+
+        // ================= TRANSACTIONS =================
         private void Deposit()
         {
-            _accountService.Deposit(AccountId, Amount);
+            if (SelectedAccount == null) return;
+
+            _accountService.Deposit(SelectedAccount.Id, Amount);
             LoadAccounts();
         }
 
         private void Withdraw()
         {
-            _accountService.Withdraw(AccountId, Amount);
+            if (SelectedAccount == null) return;
+
+            _accountService.Withdraw(SelectedAccount.Id, Amount); // later bind input
+            LoadAccounts();
+        }
+
+        // ================= CLOSE =================
+        private void CloseAccount()
+        {
+            if (SelectedAccount == null) return;
+
+            _accountService.CloseAccount(SelectedAccount.Id);
             LoadAccounts();
         }
     }
