@@ -14,7 +14,7 @@ namespace BankingSystem.Core.Models
 
         public DateTime ExpiryDate { get; set; }
 
-        public int CustomerId { get; set; }
+       
         public Customer Customer { get; set; }
     }
 }

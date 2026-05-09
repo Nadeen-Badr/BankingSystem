@@ -68,6 +68,9 @@
             <DataTemplate DataType="{x:Type vmServices:ServicesViewModel}">
                 <viewServices:ServicesView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vmCust:EditCustomerViewModel}">
+                <viewCust:EditCustomerView/>
+            </DataTemplate>
         </ResourceDictionary>
 
     </Application.Resources>

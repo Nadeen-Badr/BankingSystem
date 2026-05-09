@@ -13,7 +13,7 @@ namespace BankingSystem.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202605081039509_InitialCreate"; }
+            get { return "202605091635562_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

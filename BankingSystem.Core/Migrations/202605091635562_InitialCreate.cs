@@ -57,7 +57,6 @@
                         Id = c.Int(nullable: false),
                         CashLimit = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ExpiryDate = c.DateTime(nullable: false),
-                        CustomerId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Customers", t => t.Id)

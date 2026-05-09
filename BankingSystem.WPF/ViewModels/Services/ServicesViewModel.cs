@@ -44,7 +44,24 @@ namespace BankingSystem.WPF.ViewModels.Services
         public CreditCard Card
         {
             get => _card;
-            set => SetProperty(ref _card, value);
+            set
+            {
+                if (SetProperty(ref _card, value))
+                {
+                    // This tells the UI that CardInfo has also "changed"
+                    OnPropertyChanged(nameof(CardInfo));
+                }
+            }
+        }
+        public string CardInfo
+        {
+            get
+            {
+                if (Card == null)
+                    return "No credit card found for this customer.";
+
+                return $"Limit: {Card.CashLimit:C} | Expires: {Card.ExpiryDate:MM/yyyy}";
+            }
         }
 
         // Commands

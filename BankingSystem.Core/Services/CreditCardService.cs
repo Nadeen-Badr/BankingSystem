@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BankingSystem.Core.Data;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
-using System;
 
 namespace BankingSystem.Core.Services
 {
@@ -21,25 +17,30 @@ namespace BankingSystem.Core.Services
             _context = context;
             _logger = logger;
         }
+
         public CreditCard CreateCard(int customerId, decimal cashLimit)
         {
+            // 1. Find the customer
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
                 throw new Exception("Customer not found");
 
-            var existingCard = _context.CreditCards
-                .FirstOrDefault(c => c.CustomerId == customerId);
+            // 2. Check existence using Id (since it's a shared PK)
+            var existingCard = _context.CreditCards.Find(customerId);
 
             if (existingCard != null)
                 throw new Exception("Customer already has a credit card");
 
+            // 3. Business Logic Validation
             if (!IsValidLimit(cashLimit))
                 throw new Exception("Invalid cash limit");
 
+            // 4. Create the card
             var card = new CreditCard
             {
-                CustomerId = customerId,
+                Id = customerId, // Primary Key is the CustomerId
+                Customer = customer, // Navigation property link
                 CashLimit = cashLimit,
                 ExpiryDate = DateTime.Now.AddYears(10)
             };
@@ -51,10 +52,11 @@ namespace BankingSystem.Core.Services
 
             return card;
         }
+
         public void UpdateLimit(int customerId, decimal newLimit)
         {
-            var card = _context.CreditCards
-                .FirstOrDefault(c => c.CustomerId == customerId);
+            // Search by Id because CreditCard.Id == CustomerId
+            var card = _context.CreditCards.Find(customerId);
 
             if (card == null)
                 throw new Exception("Credit card not found");
@@ -68,11 +70,13 @@ namespace BankingSystem.Core.Services
 
             _logger.Log($"UPDATE_CREDIT_CARD_LIMIT | Customer:{customerId} | NewLimit:{newLimit}");
         }
+
         public CreditCard GetByCustomer(int customerId)
         {
-            return _context.CreditCards
-                .FirstOrDefault(c => c.CustomerId == customerId);
+            // Direct lookup by ID is faster than FirstOrDefault
+            return _context.CreditCards.Find(customerId);
         }
+
         private bool IsValidLimit(decimal limit)
         {
             return limit >= 50000 && limit <= 250000;

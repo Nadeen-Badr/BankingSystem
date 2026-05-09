@@ -1,0 +1,8 @@
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\bin\Debug\BankingSystem.Tests.dll
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\bin\Debug\BankingSystem.Tests.pdb
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\obj\Debug\BankingSystem.Tests.csproj.AssemblyReference.cache
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\obj\Debug\BankingSystem.Tests.csproj.CoreCompileInputs.cache
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\obj\Debug\BankingS.1A128EB5.Up2Date
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\obj\Debug\BankingSystem.Tests.dll
+D:\Dev\Personal\BankingSystem\BankingSystem.Tests\obj\Debug\BankingSystem.Tests.pdb

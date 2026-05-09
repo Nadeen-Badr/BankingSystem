@@ -47,3 +47,5 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.exe
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.pdb
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.g.cs
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.baml
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.g.cs

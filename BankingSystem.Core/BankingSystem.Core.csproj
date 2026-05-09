@@ -58,9 +58,9 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\TransactionType.cs" />
     <Compile Include="Enums\UserRole.cs" />
-    <Compile Include="Migrations\202605081039509_InitialCreate.cs" />
-    <Compile Include="Migrations\202605081039509_InitialCreate.Designer.cs">
-      <DependentUpon>202605081039509_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202605091635562_InitialCreate.cs" />
+    <Compile Include="Migrations\202605091635562_InitialCreate.Designer.cs">
+      <DependentUpon>202605091635562_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -88,8 +88,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202605081039509_InitialCreate.resx">
-      <DependentUpon>202605081039509_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202605091635562_InitialCreate.resx">
+      <DependentUpon>202605091635562_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

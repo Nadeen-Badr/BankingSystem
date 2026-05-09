@@ -37,6 +37,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         public ICommand ShowLogoutCommand { get; }
         public ICommand ShowLogsCommand { get; }
         public ICommand ShowServicesCommand { get; }
+        public ICommand ShowProfileCommand { get; }
 
         public bool IsLoggedIn => AppSession.CurrentRole != null;
         public bool IsCustomer => AppSession.CurrentRole == UserRole.Customer;
@@ -59,6 +60,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             ShowLogoutCommand = new RelayCommand(_ => Logout());
             ShowLogsCommand = new RelayCommand(_ => ShowLogs());
             ShowServicesCommand = new RelayCommand(_ => ShowServices());
+            ShowProfileCommand = new RelayCommand(_ => ShowProfile());
 
             // default landing page AFTER login
             ShowDashboard();
@@ -143,7 +145,10 @@ namespace BankingSystem.WPF.ViewModels.Accounts
 
             CurrentView = vm;
         }
-
+        private void ShowProfile()
+        {
+            CurrentView = new EditCustomerViewModel(_customerService);
+        }
         // ================= LOGOUT =================
         private void Logout()
         {
