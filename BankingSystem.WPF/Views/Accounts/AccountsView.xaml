@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="BankingSystem.WPF.Views.Accounts.AccountsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- INPUT -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+
+            <TextBox Width="100"
+                     Margin="5"
+                     Text="{Binding AccountId}" />
+
+            <TextBox Width="120"
+                     Margin="5"
+                     Text="{Binding Amount}" />
+
+            <Button Content="Deposit"
+                    Command="{Binding DepositCommand}" />
+
+            <Button Content="Withdraw"
+                    Command="{Binding WithdrawCommand}" />
+
+        </StackPanel>
+
+        <!-- ACCOUNTS LIST -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Accounts}"
+                  AutoGenerateColumns="True"/>
+
+    </Grid>
+</UserControl>
