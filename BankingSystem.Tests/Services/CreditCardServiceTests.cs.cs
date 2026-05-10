@@ -11,18 +11,19 @@ using System;
 public class CreditCardServiceTests : TestBase
 {
     private ILoggerService _loggerMock;
-    private BankingDbContext _context;
+    private CreditCardService _service;
 
     [TestInitialize]
-    public void Setup()
+    public void SetupTest()
     {
-        ClearDatabase();
+        base.Setup();
+
         _loggerMock = new Mock<ILoggerService>().Object;
-        _context = CreateContext();
+        _service = new CreditCardService(Context, _loggerMock);
     }
 
     // ----------------------------
-    // Helper: Create Customer
+    // Helper
     // ----------------------------
     private Customer CreateCustomer()
     {
@@ -34,8 +35,8 @@ public class CreditCardServiceTests : TestBase
             Address = "Cairo"
         };
 
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
+        Context.Customers.Add(customer);
+        Context.SaveChanges();
 
         return customer;
     }
@@ -46,14 +47,10 @@ public class CreditCardServiceTests : TestBase
     [TestMethod]
     public void CreateCard_ValidData_ShouldCreateCard()
     {
-        // Arrange
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        // Act
-        var result = service.CreateCard(customer.Id, 100000);
+        var result = _service.CreateCard(customer.Id, 100000);
 
-        // Assert
         Assert.IsNotNull(result);
         Assert.AreEqual(100000, result.CashLimit);
         Assert.AreEqual(customer.Id, result.Id);
@@ -66,20 +63,11 @@ public class CreditCardServiceTests : TestBase
     public void CreateCard_LimitTooLow_ShouldThrowException()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<Exception>(() =>
         {
-            service.CreateCard(customer.Id, 10000); // invalid
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.CreateCard(customer.Id, 10000);
+        });
     }
 
     // ----------------------------
@@ -89,45 +77,27 @@ public class CreditCardServiceTests : TestBase
     public void CreateCard_LimitTooHigh_ShouldThrowException()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<Exception>(() =>
         {
-            service.CreateCard(customer.Id, 500000); // invalid
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.CreateCard(customer.Id, 500000);
+        });
     }
 
     // ----------------------------
     // 4. DUPLICATE CARD
     // ----------------------------
     [TestMethod]
-    public void CreateCard_SecondCard_ShouldFail()
+    public void CreateCard_Duplicate_ShouldFail()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        service.CreateCard(customer.Id, 100000);
+        _service.CreateCard(customer.Id, 100000);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<Exception>(() =>
         {
-            service.CreateCard(customer.Id, 150000);
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.CreateCard(customer.Id, 150000);
+        });
     }
 
     // ----------------------------
@@ -137,12 +107,11 @@ public class CreditCardServiceTests : TestBase
     public void UpdateLimit_Valid_ShouldUpdate()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        service.CreateCard(customer.Id, 100000);
-        service.UpdateLimit(customer.Id, 200000);
+        _service.CreateCard(customer.Id, 100000);
+        _service.UpdateLimit(customer.Id, 200000);
 
-        var card = service.GetByCustomer(customer.Id);
+        var card = _service.GetByCustomer(customer.Id);
 
         Assert.AreEqual(200000, card.CashLimit);
     }
@@ -154,22 +123,13 @@ public class CreditCardServiceTests : TestBase
     public void UpdateLimit_Invalid_ShouldThrowException()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        service.CreateCard(customer.Id, 100000);
+        _service.CreateCard(customer.Id, 100000);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<Exception>(() =>
         {
-            service.UpdateLimit(customer.Id, 999); // invalid
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.UpdateLimit(customer.Id, 999);
+        });
     }
 
     // ----------------------------
@@ -179,11 +139,10 @@ public class CreditCardServiceTests : TestBase
     public void GetByCustomer_ShouldReturnCard()
     {
         var customer = CreateCustomer();
-        var service = new CreditCardService(_context, _loggerMock);
 
-        service.CreateCard(customer.Id, 120000);
+        _service.CreateCard(customer.Id, 120000);
 
-        var card = service.GetByCustomer(customer.Id);
+        var card = _service.GetByCustomer(customer.Id);
 
         Assert.IsNotNull(card);
         Assert.AreEqual(120000, card.CashLimit);

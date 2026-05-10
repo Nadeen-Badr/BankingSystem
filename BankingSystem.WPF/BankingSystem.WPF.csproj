@@ -71,6 +71,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Helpers\AppSession.cs" />
     <Compile Include="Helpers\BoolToVisibilityConverter.cs" />
+    <Compile Include="Helpers\ErrorHandler.cs" />
     <Compile Include="ViewModels\Accounts\AccountsViewModel.cs" />
     <Compile Include="ViewModels\Admin\LogsViewModel.cs" />
     <Compile Include="ViewModels\Auth\AuthWindowViewModel.cs" />

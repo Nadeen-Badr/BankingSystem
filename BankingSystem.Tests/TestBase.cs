@@ -1,25 +1,23 @@
 ﻿using System;
 using BankingSystem.Core.Data;
+using BankingSystem.Core.Data;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 public class TestBase
 {
-    protected BankingDbContext CreateContext()
-    {
-        return new BankingDbContext();
-    }
+    protected BankingDbContext Context;
 
-    protected void ClearDatabase()
+    [TestInitialize]
+    public void Setup()
     {
-        using (var context = new BankingDbContext())
+        Context = new BankingDbContext();
+
+        if (Context.Database.Exists())
         {
-            // WARNING: This deletes the DB every test run
-            // Good for learning / small projects
-            if (context.Database.Exists())
-            {
-                context.Database.Delete();
-            }
-
-            context.Database.Create();
+            Context.Database.Delete();
         }
+
+        Context.Database.Create();
     }
 }

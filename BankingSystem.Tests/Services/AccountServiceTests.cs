@@ -1,28 +1,32 @@
 ﻿using BankingSystem.Core.Data;
 using BankingSystem.Core.Enums;
+using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
 using BankingSystem.Core.Services.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [TestClass]
 public class AccountServiceTests : TestBase
 {
     private ILoggerService _loggerMock;
-    private BankingDbContext _context;
+    private AccountService _service;
 
     [TestInitialize]
-    public void Setup()
+    public void SetupTest()
     {
-        ClearDatabase();
+        base.Setup();
+
         _loggerMock = new Mock<ILoggerService>().Object;
-        _context = CreateContext();
+        _service = new AccountService(Context, _loggerMock);
     }
 
     // -----------------------------
-    // Helper: Create Customer
+    // Helpers
     // -----------------------------
     private Customer CreateCustomer()
     {
@@ -34,15 +38,12 @@ public class AccountServiceTests : TestBase
             Address = "Cairo"
         };
 
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
+        Context.Customers.Add(customer);
+        Context.SaveChanges();
 
         return customer;
     }
 
-    // -----------------------------
-    // Helper: Create Account
-    // -----------------------------
     private Account CreateAccount(decimal balance = 0)
     {
         var customer = CreateCustomer();
@@ -51,11 +52,12 @@ public class AccountServiceTests : TestBase
         {
             CustomerId = customer.Id,
             Balance = balance,
-            AccountType = AccountType.Saving
+            AccountType = AccountType.Saving,
+            Transactions = new List<Transaction>()
         };
 
-        _context.Accounts.Add(account);
-        _context.SaveChanges();
+        Context.Accounts.Add(account);
+        Context.SaveChanges();
 
         return account;
     }
@@ -68,11 +70,9 @@ public class AccountServiceTests : TestBase
     {
         var account = CreateAccount(1000);
 
-        var service = new AccountService(_context, _loggerMock);
+        _service.Deposit(account.Id, 500);
 
-        service.Deposit(account.Id, 500);
-
-        var updated = _context.Accounts.Find(account.Id);
+        var updated = Context.Accounts.First(a => a.Id == account.Id);
 
         Assert.AreEqual(1500, updated.Balance);
     }
@@ -84,20 +84,11 @@ public class AccountServiceTests : TestBase
     public void Deposit_InvalidAmount_ShouldThrowException()
     {
         var account = CreateAccount(1000);
-        var service = new AccountService(_context, _loggerMock);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
-            service.Deposit(account.Id, -100);
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.Deposit(account.Id, -100);
+        });
     }
 
     // -----------------------------
@@ -107,11 +98,10 @@ public class AccountServiceTests : TestBase
     public void Withdraw_ValidAmount_ShouldDecreaseBalance()
     {
         var account = CreateAccount(1000);
-        var service = new AccountService(_context, _loggerMock);
 
-        service.Withdraw(account.Id, 400);
+        _service.Withdraw(account.Id, 400);
 
-        var updated = _context.Accounts.Find(account.Id);
+        var updated = Context.Accounts.First(a => a.Id == account.Id);
 
         Assert.AreEqual(600, updated.Balance);
     }
@@ -123,20 +113,11 @@ public class AccountServiceTests : TestBase
     public void Withdraw_InsufficientBalance_ShouldThrowException()
     {
         var account = CreateAccount(200);
-        var service = new AccountService(_context, _loggerMock);
 
-        bool thrown = false;
-
-        try
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
-            service.Withdraw(account.Id, 500);
-        }
-        catch (Exception)
-        {
-            thrown = true;
-        }
-
-        Assert.IsTrue(thrown);
+            _service.Withdraw(account.Id, 500);
+        });
     }
 
     // -----------------------------
@@ -146,9 +127,8 @@ public class AccountServiceTests : TestBase
     public void CreateSavingAccount_ShouldCreateAccount()
     {
         var customer = CreateCustomer();
-        var service = new AccountService(_context, _loggerMock);
 
-        var account = service.CreateSavingAccount(customer.Id);
+        var account = _service.CreateSavingAccount(customer.Id);
 
         Assert.IsNotNull(account);
         Assert.AreEqual(AccountType.Saving, account.AccountType);
@@ -161,9 +141,8 @@ public class AccountServiceTests : TestBase
     public void CreateSalaryAccount_ShouldCreateAccount()
     {
         var customer = CreateCustomer();
-        var service = new AccountService(_context, _loggerMock);
 
-        var account = service.CreateSalaryAccount(customer.Id);
+        var account = _service.CreateSalaryAccount(customer.Id);
 
         Assert.IsNotNull(account);
         Assert.AreEqual(AccountType.Salary, account.AccountType);
@@ -176,11 +155,10 @@ public class AccountServiceTests : TestBase
     public void CloseAccount_ShouldRemoveAccount()
     {
         var account = CreateAccount();
-        var service = new AccountService(_context, _loggerMock);
 
-        service.CloseAccount(account.Id);
+        _service.CloseAccount(account.Id);
 
-        var deleted = _context.Accounts.Find(account.Id);
+        var deleted = Context.Accounts.Find(account.Id);
 
         Assert.IsNull(deleted);
     }
@@ -194,9 +172,7 @@ public class AccountServiceTests : TestBase
         CreateAccount();
         CreateAccount();
 
-        var service = new AccountService(_context, _loggerMock);
-
-        var result = service.GetAllAccounts();
+        var result = _service.GetAllAccounts();
 
         Assert.IsTrue(result.Count >= 2);
     }
@@ -212,13 +188,11 @@ public class AccountServiceTests : TestBase
         var account1 = new SavingAccount { CustomerId = customer.Id, Balance = 0 };
         var account2 = new SalaryAccount { CustomerId = customer.Id, Balance = 0 };
 
-        _context.Accounts.Add(account1);
-        _context.Accounts.Add(account2);
-        _context.SaveChanges();
+        Context.Accounts.Add(account1);
+        Context.Accounts.Add(account2);
+        Context.SaveChanges();
 
-        var service = new AccountService(_context, _loggerMock);
-
-        var result = service.GetAccountsByCustomer(customer.Id);
+        var result = _service.GetAccountsByCustomer(customer.Id);
 
         Assert.AreEqual(2, result.Count);
     }

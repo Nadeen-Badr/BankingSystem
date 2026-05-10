@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BankingSystem.Core.Exceptions;
 namespace BankingSystem.Core.Services
 {
     public class AccountService : IAccountService
@@ -26,10 +26,10 @@ namespace BankingSystem.Core.Services
             var account = _context.Accounts.Find(accountId);
 
             if (account == null)
-                throw new Exception("Account not found");
+                throw new AccountNotFoundException();
 
             if (amount <= 0)
-                throw new Exception("Invalid amount");
+                throw new InvalidOperationBusinessException("Invalid deposit amount");
 
             account.Balance += amount;
 
@@ -50,13 +50,13 @@ namespace BankingSystem.Core.Services
             var account = _context.Accounts.Find(accountId);
 
             if (account == null)
-                throw new Exception("Account not found");
+                throw new AccountNotFoundException();
 
             if (amount <= 0)
-                throw new Exception("Invalid amount");
+                throw new InvalidOperationBusinessException("Invalid withdraw amount");
 
             if (account.Balance < amount)
-                throw new Exception("Insufficient balance");
+                throw new InvalidOperationBusinessException("Insufficient balance");
 
             account.Balance -= amount;
 
@@ -81,7 +81,7 @@ namespace BankingSystem.Core.Services
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
-                throw new Exception("Customer not found");
+                throw new CustomerNotFoundException();
 
             var account = new SavingAccount
             {
@@ -102,7 +102,7 @@ namespace BankingSystem.Core.Services
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
-                throw new Exception("Customer not found");
+                throw new CustomerNotFoundException();
 
             var account = new SalaryAccount
             {
@@ -123,7 +123,7 @@ namespace BankingSystem.Core.Services
             var account = _context.Accounts.Find(accountId);
 
             if (account == null)
-                throw new Exception("Account not found");
+                throw new AccountNotFoundException();
 
             _context.Accounts.Remove(account);
             _context.SaveChanges();
@@ -136,6 +136,11 @@ namespace BankingSystem.Core.Services
                 .Include("Transactions")
                 .Where(a => a.CustomerId == customerId)
                 .ToList();
+        }
+
+        public void Withdraw(Account account, int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,20 +11,22 @@ using System;
 public class CertificateServiceTests : TestBase
 {
     private ILoggerService _loggerMock;
-    private BankingDbContext _context;
+    private CertificateService _service;
 
     [TestInitialize]
-    public void Setup()
+    public void SetupTest()
     {
-        ClearDatabase();
+        base.Setup();
+
         _loggerMock = new Mock<ILoggerService>().Object;
-        _context = CreateContext();
+        _service = new CertificateService(Context, _loggerMock);
     }
 
-    [TestMethod]
-    public void BuyCertificate_ValidData_ShouldCreateCertificate()
+    // -----------------------------
+    // Helper
+    // -----------------------------
+    private Customer CreateCustomer()
     {
-        // Arrange
         var customer = new Customer
         {
             Name = "Test User",
@@ -33,80 +35,55 @@ public class CertificateServiceTests : TestBase
             Address = "Cairo"
         };
 
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
+        Context.Customers.Add(customer);
+        Context.SaveChanges();
 
-        var service = new CertificateService(_context, _loggerMock);
+        return customer;
+    }
 
-        // Act
-        var result = service.BuyCertificate(
+    // -----------------------------
+    // 1. VALID BUY CERTIFICATE
+    // -----------------------------
+    [TestMethod]
+    public void BuyCertificate_ValidData_ShouldCreateCertificate()
+    {
+        var customer = CreateCustomer();
+
+        var result = _service.BuyCertificate(
             customer.Id,
             2000,
             CertificatePeriod.OneYear);
 
-        // Assert
         Assert.IsNotNull(result);
         Assert.AreEqual(2000, result.Price);
         Assert.AreEqual(0.10m, result.InterestRate);
     }
 
+    // -----------------------------
+    // 2. INVALID PRICE
+    // -----------------------------
     [TestMethod]
     public void BuyCertificate_InvalidPrice_ShouldThrowException()
     {
-        var customer = new Customer
+        var customer = CreateCustomer();
+
+        Assert.Throws<Exception>(() =>
         {
-            Name = "Test User",
-            Age = 25,
-            Gender = Gender.Male,
-            Address = "Cairo"
-        };
-
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
-
-        var service = new CertificateService(_context, _loggerMock);
-
-        bool exceptionThrown = false;
-
-        try
-        {
-            service.BuyCertificate(customer.Id, 900, CertificatePeriod.OneYear);
-        }
-        catch (Exception)
-        {
-            exceptionThrown = true;
-        }
-
-        Assert.IsTrue(exceptionThrown, "Expected exception was not thrown for invalid price");
+            _service.BuyCertificate(customer.Id, 900, CertificatePeriod.OneYear);
+        });
     }
 
+    // -----------------------------
+    // 3. INVALID PERIOD
+    // -----------------------------
     [TestMethod]
     public void BuyCertificate_InvalidPeriod_ShouldThrowException()
     {
-        var customer = new Customer
+        var customer = CreateCustomer();
+
+        Assert.Throws<Exception>(() =>
         {
-            Name = "Test User",
-            Age = 25,
-            Gender = Gender.Male,
-            Address = "Cairo"
-        };
-
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
-
-        var service = new CertificateService(_context, _loggerMock);
-
-        bool exceptionThrown = false;
-
-        try
-        {
-            service.BuyCertificate(customer.Id, 2000, (CertificatePeriod)999);
-        }
-        catch (Exception)
-        {
-            exceptionThrown = true;
-        }
-
-        Assert.IsTrue(exceptionThrown, "Expected exception was not thrown for invalid period");
+            _service.BuyCertificate(customer.Id, 2000, (CertificatePeriod)999);
+        });
     }
 }

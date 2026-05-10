@@ -58,6 +58,10 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\TransactionType.cs" />
     <Compile Include="Enums\UserRole.cs" />
+    <Compile Include="Exceptions\AccountNotFoundException.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
+    <Compile Include="Exceptions\CustomerNotFoundException.cs" />
+    <Compile Include="Exceptions\InvalidOperationBusinessException.cs" />
     <Compile Include="Migrations\202605091635562_InitialCreate.cs" />
     <Compile Include="Migrations\202605091635562_InitialCreate.Designer.cs">
       <DependentUpon>202605091635562_InitialCreate.cs</DependentUpon>

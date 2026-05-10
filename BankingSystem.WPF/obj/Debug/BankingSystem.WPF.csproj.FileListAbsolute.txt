@@ -19,9 +19,11 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Admin\LogsView.b
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\AuthWindow.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\LoginView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomerDashboardView.baml
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\ExistingCustomerView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\NewCustomerView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Dashboard\DashboardView.baml
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\MainWindow.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Accounts\AccountsView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Admin\LogsView.g.cs
@@ -29,9 +31,11 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\AuthWindow.
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\LoginView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomerDashboardView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomersView.g.cs
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\ExistingCustomerView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\NewCustomerView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Dashboard\DashboardView.g.cs
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\App.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF_MarkupCompile.cache
@@ -45,7 +49,3 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.cspr
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingS.1334D1DA.Up2Date
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.exe
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.pdb
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.baml
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Services\ServicesView.g.cs
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.baml
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.g.cs
