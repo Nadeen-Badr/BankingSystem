@@ -1,19 +1,23 @@
 ﻿using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.WPF.Commands;
 using BankingSystem.WPF.ViewModels.Base;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace BankingSystem.WPF.ViewModels.Customers
 {
     public class CustomerDashboardViewModel : ViewModelBase
     {
         private readonly IReportService _reportService;
-
+        public ICommand ExportTransactionsCommand { get; }
         public CustomerDashboardViewModel(IReportService reportService)
         {
             _reportService = reportService;
+            ExportTransactionsCommand = new RelayCommand(_ => ExportTransactions());
             LoadCustomerData();
         }
 
@@ -64,6 +68,17 @@ namespace BankingSystem.WPF.ViewModels.Customers
             CreditCards = new ObservableCollection<CreditCard>(report.CreditCards ?? new List<CreditCard>());
 
             TotalBalance = report.TotalBalance;
+        }
+        private void ExportTransactions()
+        {
+            var service = new PdfExportService();
+
+            var path = System.IO.Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                "Transactions.pdf"
+            );
+
+            service.ExportTransactions(Transactions.ToList(), path);
         }
     }
 }
