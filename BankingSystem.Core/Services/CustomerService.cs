@@ -1,12 +1,10 @@
 ﻿using BankingSystem.Core.Data;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
-using System;
+using BankingSystem.Core.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+
 public class CustomerService : ICustomerService
 {
     private readonly BankingDbContext _context;
@@ -18,6 +16,7 @@ public class CustomerService : ICustomerService
         _logger = logger;
     }
 
+    // ================= CREATE =================
     public Customer CreateCustomer(Customer customer)
     {
         _context.Customers.Add(customer);
@@ -28,12 +27,13 @@ public class CustomerService : ICustomerService
         return customer;
     }
 
+    // ================= UPDATE =================
     public void UpdateCustomer(Customer customer)
     {
         var existing = _context.Customers.Find(customer.Id);
 
         if (existing == null)
-            throw new Exception("Customer not found");
+            throw new CustomerNotFoundException(customer.Id);
 
         existing.Name = customer.Name;
         existing.Age = customer.Age;
@@ -45,12 +45,13 @@ public class CustomerService : ICustomerService
         _logger.Log($"UPDATE_CUSTOMER | ID:{customer.Id}");
     }
 
+    // ================= DELETE =================
     public void CloseCustomer(int customerId)
     {
         var customer = _context.Customers.Find(customerId);
 
         if (customer == null)
-            throw new Exception("Customer not found");
+            throw new CustomerNotFoundException(customerId);
 
         _context.Customers.Remove(customer);
         _context.SaveChanges();
@@ -58,6 +59,7 @@ public class CustomerService : ICustomerService
         _logger.Log($"CLOSE_CUSTOMER | ID:{customerId}");
     }
 
+    // ================= READ =================
     public List<Customer> GetAllCustomers()
     {
         return _context.Customers.ToList();

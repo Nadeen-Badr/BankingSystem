@@ -12,5 +12,9 @@ namespace BankingSystem.Core.Exceptions
             : base("Customer not found")
         {
         }
+        public CustomerNotFoundException(int customerId)
+          : base($"Customer not found. ID: {customerId}")
+        {
+        }
     }
 }

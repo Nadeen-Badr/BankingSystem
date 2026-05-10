@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Dev\\Personal\\BankingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\customernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\exceptions\\customernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.wpf\\views\\services\\servicesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -35,11 +39,11 @@
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\exceptions\\creditcardnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\creditcardnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\exceptions\\creditcardnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\exceptions\\certificatenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\certificatenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\exceptions\\certificatenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,7 +59,7 @@
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\interfaces\\icertificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\services\\accountservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.tests\\services\\accountservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\services\\accountservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -85,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\accountnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\exceptions\\accountnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\customernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\exceptions\\customernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\exceptions\\businessexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -300,37 +300,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CertificateServiceTests.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
-              "RelativeToolTip": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAuwDoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T07:34:33.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreditCardServiceTests.cs.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
-              "RelativeToolTip": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T07:50:35.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ServicesViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
@@ -338,24 +312,22 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
               "ViewState": "AgIAAJEAAAAAAAAAAAAuwLwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:24:22.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T15:24:22.057Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ServicesView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T15:22:33.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T15:22:33.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CertificateService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CertificateService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CertificateService.cs",
@@ -363,12 +335,11 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\CertificateService.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAAwG0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T08:40:51.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T08:40:51.653Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ErrorHandler.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Helpers\\ErrorHandler.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Helpers\\ErrorHandler.cs",
@@ -376,21 +347,7 @@
               "RelativeToolTip": "BankingSystem.WPF\\Helpers\\ErrorHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T08:20:08.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CreditCardNotFoundException.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T09:14:43.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T08:20:08.932Z"
             },
             {
               "$type": "Document",
@@ -400,14 +357,63 @@
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CustomerService.cs",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CustomerService.cs",
               "RelativeToolTip": "BankingSystem.Core\\Services\\CustomerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwEIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T13:48:10.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreditCardServiceTests.cs.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T07:50:35.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreditCardNotFoundException.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Exceptions\\CreditCardNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T09:14:43.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerNotFoundException.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T08:09:08.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "CertificateServiceTests.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwDoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T07:34:33.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "CreditCardService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CreditCardService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CreditCardService.cs",
@@ -415,8 +421,7 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\CreditCardService.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAuwEwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:08:05.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T15:08:05.514Z"
             },
             {
               "$type": "Document",
@@ -478,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CertificateNotFoundException.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CertificateNotFoundException.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\CertificateNotFoundException.cs",
@@ -486,12 +491,11 @@
               "RelativeToolTip": "BankingSystem.Core\\Exceptions\\CertificateNotFoundException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T09:14:09.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T09:14:09.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "LoggingService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\LoggingService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\LoggingService.cs",
@@ -499,12 +503,11 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\LoggingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T07:37:44.669Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T07:37:44.669Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ICertificateService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
@@ -512,12 +515,11 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:03:07.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T15:03:07.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AccountServiceTests.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\AccountServiceTests.cs",
               "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\AccountServiceTests.cs",
@@ -525,12 +527,11 @@
               "RelativeToolTip": "BankingSystem.Tests\\Services\\AccountServiceTests.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAQwDYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T07:52:33.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T07:52:33.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\IAccountService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\IAccountService.cs",
@@ -542,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ReportService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\ReportService.cs",
@@ -550,12 +551,11 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\ReportService.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAowBcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:00:16.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T14:00:16.531Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "TestBase.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\TestBase.cs",
               "RelativeDocumentMoniker": "BankingSystem.Tests\\TestBase.cs",
@@ -567,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "AccountsView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
@@ -578,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "AccountService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\AccountService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\AccountService.cs",
@@ -590,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AccountsViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Accounts\\AccountsViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Accounts\\AccountsViewModel.cs",
@@ -602,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "InvalidOperationBusinessException.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\InvalidOperationBusinessException.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\InvalidOperationBusinessException.cs",
@@ -614,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "AccountNotFoundException.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\AccountNotFoundException.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\AccountNotFoundException.cs",
@@ -673,18 +673,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CustomerNotFoundException.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Exceptions\\CustomerNotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T08:09:08.091Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 22,
               "Title": "BusinessException.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Exceptions\\BusinessException.cs",
@@ -727,8 +715,7 @@
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\App.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T12:19:22.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T12:19:22.939Z"
             },
             {
               "$type": "Document",
@@ -1043,8 +1030,7 @@
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Themes\\Cards.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Themes\\Cards.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T08:24:10.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T08:24:10.907Z"
             },
             {
               "$type": "Document",
@@ -1125,8 +1111,7 @@
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Themes\\TextBoxes.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Themes\\TextBoxes.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T06:30:26.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T06:30:26.72Z"
             },
             {
               "$type": "Document",
