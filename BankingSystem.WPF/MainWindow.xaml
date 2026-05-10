@@ -5,59 +5,68 @@
         Height="650"
         Width="1100"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource BackgroundBrush}">
+         WindowState="Maximized"
+        Background="{StaticResource BackgroundBrush}"
+        FontFamily="{StaticResource AppFont}">
 
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="230"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!-- SIDEBAR -->
-        <StackPanel Grid.Column="0"
-            Background="{StaticResource PrimaryBrush}"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolToVisibility}}">
+        <Border Grid.Column="0"
+                Background="{StaticResource SurfaceBrush}"
+                Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolToVisibility}}"
+                Padding="15">
 
-            <TextBlock Text="BANK SYSTEM"
-               Foreground="White"
-               FontSize="18"
-               FontWeight="Bold"
-               Margin="5,15"/>
+            <StackPanel>
 
-            <!-- COMMON -->
-            <Button Content="Dashboard"
-            Command="{Binding ShowDashboardCommand}"/>
+                <!-- App Title -->
+                <TextBlock Text="BANK SYSTEM"
+                           Style="{StaticResource TitleTextStyle}"
+                           Margin="0,10,0,25"
+                           HorizontalAlignment="Center"/>
 
-            <!-- ADMIN ONLY -->
-            <Button Content="View Logs"
-            Command="{Binding ShowLogsCommand}"
-            Visibility="{Binding IsAdmin, Converter={StaticResource BoolToVisibility}}"/>
+                <!-- Navigation Buttons -->
+                <Button Content="Dashboard"
+                        Command="{Binding ShowDashboardCommand}"/>
 
-            <!-- CUSTOMER ONLY -->
-            <Button Content="Accounts"
-            Command="{Binding ShowAccountsCommand}"
-            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
+                <Button Content="View Logs"
+                        Command="{Binding ShowLogsCommand}"
+                        Visibility="{Binding IsAdmin, Converter={StaticResource BoolToVisibility}}"/>
 
-            <Button Content="Services"
-            Command="{Binding ShowServicesCommand}"
-            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
+                <Button Content="Accounts"
+                        Command="{Binding ShowAccountsCommand}"
+                        Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
 
-            <Button Content="Profile"
-            Command="{Binding ShowProfileCommand}"
-            Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
+                <Button Content="Services"
+                        Command="{Binding ShowServicesCommand}"
+                        Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
 
-            <!-- LOGOUT -->
-            <Button Content="Logout"
-            Command="{Binding ShowLogoutCommand}"
-            Margin="5,20,5,0"/>
+                <Button Content="Profile"
+                        Command="{Binding ShowProfileCommand}"
+                        Visibility="{Binding IsCustomer, Converter={StaticResource BoolToVisibility}}"/>
 
-        </StackPanel>
+                <Button Content="Logout"
+                        Command="{Binding ShowLogoutCommand}"
+                        Margin="0,25,0,0"
+                        Background="{StaticResource SecondaryBrush}"/>
+
+            </StackPanel>
+
+        </Border>
 
         <!-- MAIN CONTENT -->
-        <ContentControl Grid.Column="1"
-                        Content="{Binding CurrentView}"
-                        Margin="10"/>
+        <Border Grid.Column="1"
+                Background="{StaticResource BackgroundBrush}"
+                Padding="15">
+
+            <ContentControl Content="{Binding CurrentView}"/>
+
+        </Border>
 
     </Grid>
 

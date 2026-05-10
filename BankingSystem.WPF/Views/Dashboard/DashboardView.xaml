@@ -1,7 +1,8 @@
 ﻿<UserControl x:Class="BankingSystem.WPF.Views.Dashboard.DashboardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Background="{StaticResource BackgroundBrush}">
+             Background="{StaticResource BackgroundBrush}"
+             FontFamily="{StaticResource AppFont}">
 
     <Grid Margin="20">
 
@@ -12,71 +13,66 @@
 
         <!-- TITLE -->
         <TextBlock Text="Admin Dashboard"
-                   FontSize="28"
-                   FontWeight="Bold"
-                   Foreground="White"
-                   Margin="0,0,0,20"/>
+                   Style="{StaticResource TitleTextStyle}"
+                   Margin="0,0,0,25"/>
 
         <!-- CARDS -->
-        <UniformGrid Grid.Row="1" Columns="3">
+        <UniformGrid Grid.Row="1"
+                     Columns="3"
+                     Rows="2">
 
+            <!-- Customers -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Customers"
-                               Foreground="{StaticResource PrimaryBrush}"
-                               FontSize="14"/>
+                               Style="{StaticResource MutedTextStyle}"/>
                     <TextBlock Text="{Binding TotalCustomers}"
-                               Foreground="White"
-                               FontSize="26"
-                               FontWeight="Bold"/>
+                               Style="{StaticResource SectionHeaderTextStyle}"
+                               FontSize="26"/>
                 </StackPanel>
             </Border>
 
+            <!-- Accounts -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Accounts"
-                               Foreground="{StaticResource PrimaryBrush}"
-                               FontSize="14"/>
+                               Style="{StaticResource MutedTextStyle}"/>
                     <TextBlock Text="{Binding TotalAccounts}"
-                               Foreground="White"
-                               FontSize="26"
-                               FontWeight="Bold"/>
+                               Style="{StaticResource SectionHeaderTextStyle}"
+                               FontSize="26"/>
                 </StackPanel>
             </Border>
 
+            <!-- Total Balance -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Total Balance"
-                               Foreground="{StaticResource PrimaryBrush}"
-                               FontSize="14"/>
+                               Style="{StaticResource MutedTextStyle}"/>
                     <TextBlock Text="{Binding TotalBalance}"
-                               Foreground="White"
-                               FontSize="26"
-                               FontWeight="Bold"/>
+                               Style="{StaticResource SectionHeaderTextStyle}"
+                               FontSize="26"/>
                 </StackPanel>
             </Border>
 
+            <!-- Certificates -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Certificates"
-                               Foreground="{StaticResource PrimaryBrush}"
-                               FontSize="14"/>
+                               Style="{StaticResource MutedTextStyle}"/>
                     <TextBlock Text="{Binding TotalCertificates}"
-                               Foreground="White"
-                               FontSize="26"
-                               FontWeight="Bold"/>
+                               Style="{StaticResource SectionHeaderTextStyle}"
+                               FontSize="26"/>
                 </StackPanel>
             </Border>
 
+            <!-- Credit Cards -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Credit Cards"
-                               Foreground="{StaticResource PrimaryBrush}"
-                               FontSize="14"/>
+                               Style="{StaticResource MutedTextStyle}"/>
                     <TextBlock Text="{Binding TotalCreditCards}"
-                               Foreground="White"
-                               FontSize="26"
-                               FontWeight="Bold"/>
+                               Style="{StaticResource SectionHeaderTextStyle}"
+                               FontSize="26"/>
                 </StackPanel>
             </Border>
 

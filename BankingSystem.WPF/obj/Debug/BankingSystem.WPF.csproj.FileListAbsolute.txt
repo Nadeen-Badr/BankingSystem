@@ -49,3 +49,5 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.cspr
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingS.1334D1DA.Up2Date
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.exe
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.pdb
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Themes\Brushes.baml
+D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Themes\Typography.baml

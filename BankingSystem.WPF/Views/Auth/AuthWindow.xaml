@@ -5,20 +5,55 @@
         Height="600"
         Width="900"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource BackgroundBrush}">
+        Background="{StaticResource BackgroundBrush}"
+         WindowState="Maximized"
+        FontFamily="{StaticResource AppFont}">
 
     <Grid>
 
-        <!-- Center Container -->
-        <Border Width="400"
-                Padding="30"
+        <!-- Center Auth Card -->
+        <Border Width="420"
+                Padding="35"
                 Background="{StaticResource SurfaceBrush}"
-                CornerRadius="15"
+                CornerRadius="18"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-               >
+                VerticalAlignment="Center">
 
-            <ContentControl Content="{Binding CurrentView}"/>
+            <!-- Subtle elevation -->
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25"
+                                  ShadowDepth="2"
+                                  Opacity="0.25"
+                                  Color="Black"/>
+            </Border.Effect>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Optional Header (gives premium feel) -->
+                <StackPanel Margin="0,0,0,20"
+                            HorizontalAlignment="Center">
+
+                    <TextBlock Text="Banking System"
+                               Style="{StaticResource TitleTextStyle}"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Secure Access Portal"
+                               Style="{StaticResource MutedTextStyle}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,0"/>
+
+                </StackPanel>
+
+                <!-- AUTH CONTENT -->
+                <ContentControl Grid.Row="1"
+                                Content="{Binding CurrentView}"/>
+
+            </Grid>
 
         </Border>
 

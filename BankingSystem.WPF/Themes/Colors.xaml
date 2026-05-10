@@ -1,19 +1,26 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- Emerald Theme -->
-    <Color x:Key="PrimaryColor">#046A38</Color>
-    <Color x:Key="BackgroundColor">#121212</Color>
-    <Color x:Key="SurfaceColor">#1E1E1E</Color>
+    <!-- Background -->
+    <Color x:Key="DarkBackgroundColor">#FF2A363B</Color>
 
-    <SolidColorBrush x:Key="PrimaryBrush"
-                     Color="{StaticResource PrimaryColor}" />
+    <!-- Surface (Cards / Panels) -->
+    <Color x:Key="SurfaceColor">#FF33424A</Color>
 
-    <SolidColorBrush x:Key="BackgroundBrush"
-                     Color="{StaticResource BackgroundColor}" />
+    <!-- Primary Accent -->
+    <Color x:Key="PrimaryColor">#FFE84A5F</Color>
 
-    <SolidColorBrush x:Key="SurfaceBrush"
-                     Color="{StaticResource SurfaceColor}" />
+    <!-- Secondary Accent -->
+    <Color x:Key="SecondaryColor">#FFFF847C</Color>
+
+    <!-- Success -->
+    <Color x:Key="SuccessColor">#FF99B898</Color>
+
+    <!-- Light Highlight -->
+    <Color x:Key="HighlightColor">#FFFECEAB</Color>
+
+    <!-- Text -->
+    <Color x:Key="TextPrimaryColor">#FFFFFFFF</Color>
+    <Color x:Key="TextSecondaryColor">#FFCCCCCC</Color>
 
 </ResourceDictionary>

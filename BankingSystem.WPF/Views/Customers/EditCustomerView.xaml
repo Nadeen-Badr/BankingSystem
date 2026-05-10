@@ -1,11 +1,12 @@
 ﻿<UserControl x:Class="BankingSystem.WPF.Views.Customers.EditCustomerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Background="{StaticResource BackgroundBrush}">
+             Background="{StaticResource BackgroundBrush}"
+             FontFamily="{StaticResource AppFont}">
 
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center"
-          Width="400">
+          Width="420">
 
         <Border Style="{StaticResource DashboardCard}">
 
@@ -13,45 +14,49 @@
 
                 <!-- TITLE -->
                 <TextBlock Text="Edit Profile"
-                           FontSize="22"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           Margin="0,0,0,20"
-                           HorizontalAlignment="Center"/>
+                           Style="{StaticResource TitleTextStyle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
 
                 <!-- NAME -->
                 <TextBlock Text="Name"
-                           Foreground="White"/>
+                           Style="{StaticResource MutedTextStyle}"/>
                 <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="0,5,0,10"/>
+                         Margin="0,5,0,12"/>
 
                 <!-- AGE -->
                 <TextBlock Text="Age"
-                           Foreground="White"/>
+                           Style="{StaticResource MutedTextStyle}"/>
                 <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="0,5,0,10"/>
+                         Margin="0,5,0,12"/>
 
                 <!-- ADDRESS -->
                 <TextBlock Text="Address"
-                           Foreground="White"/>
+                           Style="{StaticResource MutedTextStyle}"/>
                 <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="0,5,0,10"/>
+                         Margin="0,5,0,12"/>
 
                 <!-- GENDER -->
                 <TextBlock Text="Gender"
-                           Foreground="White"/>
+                           Style="{StaticResource MutedTextStyle}"/>
                 <ComboBox ItemsSource="{Binding Genders}"
                           SelectedItem="{Binding Gender}"
-                          Margin="0,5,0,15"/>
+                          Margin="0,5,0,18"/>
 
                 <!-- BUTTONS -->
-                <Button Content="Save"
-                        Command="{Binding SaveCommand}"
-                        Margin="0,5"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
 
-                <Button Content="Cancel"
-                        Command="{Binding CancelCommand}"
-                        Margin="0,5"/>
+                    <Button Content="Cancel"
+                            Command="{Binding CancelCommand}"
+                            Background="{StaticResource SurfaceBrush}"
+                            Margin="0,0,10,0"/>
+
+                    <Button Content="Save"
+                            Command="{Binding SaveCommand}"
+                            Background="{StaticResource PrimaryBrush}"/>
+
+                </StackPanel>
 
             </StackPanel>
 

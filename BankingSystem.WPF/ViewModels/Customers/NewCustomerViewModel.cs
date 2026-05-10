@@ -17,8 +17,8 @@ namespace BankingSystem.WPF.ViewModels.Customers
         {
             _customerService = customerService;
             _logger = logger;
-
-            CreateCustomerCommand = new RelayCommand(_ => CreateCustomer());
+            CreateCustomerCommand = new RelayCommand(_ => CreateCustomer(), _ => CanCreateCustomer());
+           
             BackCommand = new RelayCommand(_ => RequestBackToLogin?.Invoke());
         }
 
@@ -50,6 +50,8 @@ namespace BankingSystem.WPF.ViewModels.Customers
             get => _address;
             set => SetProperty(ref _address, value);
         }
+
+        public Array Genders { get; } = Enum.GetValues(typeof(Gender));
 
         // ================= UX MESSAGE =================
         private string _message;
@@ -109,6 +111,13 @@ namespace BankingSystem.WPF.ViewModels.Customers
             Age = 0;
             Address = string.Empty;
             Gender = Gender.Male;
+        }
+        private bool CanCreateCustomer()
+        {
+            return !string.IsNullOrWhiteSpace(Name)
+                && !string.IsNullOrWhiteSpace(Address)
+                && Age > 0
+                && (Gender == Gender.Male || Gender == Gender.Female);
         }
     }
 }
