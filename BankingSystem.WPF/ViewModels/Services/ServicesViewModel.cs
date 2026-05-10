@@ -30,14 +30,19 @@ namespace BankingSystem.WPF.ViewModels.Services
 
         // Inputs
         public decimal CertificatePrice { get; set; }
+
         public List<CertificatePeriod> Periods { get; } =
-      Enum.GetValues(typeof(CertificatePeriod)).Cast<CertificatePeriod>().ToList();
+            Enum.GetValues(typeof(CertificatePeriod))
+                .Cast<CertificatePeriod>()
+                .ToList();
+
         private CertificatePeriod _selectedPeriod;
         public CertificatePeriod SelectedPeriod
         {
             get => _selectedPeriod;
             set => SetProperty(ref _selectedPeriod, value);
         }
+
         public decimal CreditLimit { get; set; }
 
         private CreditCard _card;
@@ -47,12 +52,10 @@ namespace BankingSystem.WPF.ViewModels.Services
             set
             {
                 if (SetProperty(ref _card, value))
-                {
-                    // This tells the UI that CardInfo has also "changed"
                     OnPropertyChanged(nameof(CardInfo));
-                }
             }
         }
+
         public string CardInfo
         {
             get
@@ -84,15 +87,28 @@ namespace BankingSystem.WPF.ViewModels.Services
 
             Certificates = new ObservableCollection<Certificate>();
 
-            LoadCommand = new RelayCommand(_ => Load());
-            BuyCertificateCommand = new RelayCommand(_ => BuyCertificate());
-            UpdateCertificateCommand = new RelayCommand(_ => UpdateCertificate());
-            DeleteCertificateCommand = new RelayCommand(_ => DeleteCertificate());
+            LoadCommand = new RelayCommand(_ => SafeExecute(Load));
+            BuyCertificateCommand = new RelayCommand(_ => SafeExecute(BuyCertificate));
+            UpdateCertificateCommand = new RelayCommand(_ => SafeExecute(UpdateCertificate));
+            DeleteCertificateCommand = new RelayCommand(_ => SafeExecute(DeleteCertificate));
 
-            CreateCardCommand = new RelayCommand(_ => CreateCard());
-            UpdateLimitCommand = new RelayCommand(_ => UpdateLimit());
+            CreateCardCommand = new RelayCommand(_ => SafeExecute(CreateCard));
+            UpdateLimitCommand = new RelayCommand(_ => SafeExecute(UpdateLimit));
 
             Load();
+        }
+
+        // ================= SAFE WRAPPER =================
+        private void SafeExecute(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler.Handle(ex);
+            }
         }
 
         // ================= LOAD =================
@@ -101,7 +117,6 @@ namespace BankingSystem.WPF.ViewModels.Services
             var customerId = AppSession.CurrentCustomerId;
             if (customerId == null) return;
 
-            // Certificates (direct query since service doesn't expose GetByCustomer)
             Certificates.Clear();
 
             var certs = _context.Certificates
@@ -111,7 +126,6 @@ namespace BankingSystem.WPF.ViewModels.Services
             foreach (var c in certs)
                 Certificates.Add(c);
 
-            // Credit Card
             Card = _creditCardService.GetByCustomer(customerId.Value);
         }
 

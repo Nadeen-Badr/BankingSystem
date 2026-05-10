@@ -2,11 +2,9 @@
 using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.Core.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 namespace BankingSystem.Core.Services
 {
     public class CertificateService : ICertificateService
@@ -25,7 +23,7 @@ namespace BankingSystem.Core.Services
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
-                throw new Exception("Customer not found");
+                throw new CustomerNotFoundException();
 
             ValidatePrice(price);
             ValidatePeriod(period);
@@ -46,12 +44,13 @@ namespace BankingSystem.Core.Services
 
             return certificate;
         }
+
         public void UpdateCertificate(int certificateId, decimal price, CertificatePeriod period)
         {
             var existing = _context.Certificates.Find(certificateId);
 
             if (existing == null)
-                throw new Exception("Certificate not found");
+                throw new CertificateNotFoundException();
 
             ValidatePrice(price);
             ValidatePeriod(period);
@@ -70,7 +69,7 @@ namespace BankingSystem.Core.Services
             var cert = _context.Certificates.Find(certificateId);
 
             if (cert == null)
-                throw new Exception("Certificate not found");
+                throw new CertificateNotFoundException();
 
             _context.Certificates.Remove(cert);
             _context.SaveChanges();
@@ -78,21 +77,22 @@ namespace BankingSystem.Core.Services
             _logger.Log($"DELETE_CERTIFICATE | ID:{certificateId}");
         }
 
-        // ---------------- PRIVATE BUSINESS RULES ----------------
+        // ---------------- RULES ----------------
 
         private void ValidatePrice(decimal price)
         {
             if (price < 1000 || price % 1000 != 0)
-                throw new Exception("Price must be >= 1000 and multiple of 1000");
+                throw new InvalidOperationBusinessException("Price must be >= 1000 and multiple of 1000");
         }
 
         private void ValidatePeriod(CertificatePeriod period)
         {
             if (!Enum.IsDefined(typeof(CertificatePeriod), period))
-                throw new Exception("Invalid certificate period");
+                throw new InvalidOperationBusinessException("Invalid certificate period");
         }
 
-        private decimal GetInterestRate(CertificatePeriod period)
+      
+             private decimal GetInterestRate(CertificatePeriod period)
         {
             if (period == CertificatePeriod.OneYear)
                 return 0.10m;
@@ -102,8 +102,9 @@ namespace BankingSystem.Core.Services
 
             if (period == CertificatePeriod.FiveYears)
                 return 0.20m;
-
-            throw new Exception("Invalid certificate period");
+            else {
+                throw new InvalidOperationBusinessException("Invalid certificate period");
+            };
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿using BankingSystem.Core.Data;
-using BankingSystem.Core.Enums;
+﻿using BankingSystem.Core.Enums;
+using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
 using BankingSystem.Core.Services.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 
 [TestClass]
 public class CreditCardServiceTests : TestBase
@@ -22,9 +21,6 @@ public class CreditCardServiceTests : TestBase
         _service = new CreditCardService(Context, _loggerMock);
     }
 
-    // ----------------------------
-    // Helper
-    // ----------------------------
     private Customer CreateCustomer()
     {
         var customer = new Customer
@@ -41,9 +37,7 @@ public class CreditCardServiceTests : TestBase
         return customer;
     }
 
-    // ----------------------------
-    // 1. VALID CARD CREATION
-    // ----------------------------
+    // ---------------- VALID ----------------
     [TestMethod]
     public void CreateCard_ValidData_ShouldCreateCard()
     {
@@ -56,53 +50,45 @@ public class CreditCardServiceTests : TestBase
         Assert.AreEqual(customer.Id, result.Id);
     }
 
-    // ----------------------------
-    // 2. INVALID LIMIT (LOW)
-    // ----------------------------
+    // ---------------- INVALID LOW ----------------
     [TestMethod]
-    public void CreateCard_LimitTooLow_ShouldThrowException()
+    public void CreateCard_LimitTooLow_ShouldThrow()
     {
         var customer = CreateCustomer();
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.CreateCard(customer.Id, 10000);
         });
     }
 
-    // ----------------------------
-    // 3. INVALID LIMIT (HIGH)
-    // ----------------------------
+    // ---------------- INVALID HIGH ----------------
     [TestMethod]
-    public void CreateCard_LimitTooHigh_ShouldThrowException()
+    public void CreateCard_LimitTooHigh_ShouldThrow()
     {
         var customer = CreateCustomer();
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.CreateCard(customer.Id, 500000);
         });
     }
 
-    // ----------------------------
-    // 4. DUPLICATE CARD
-    // ----------------------------
+    // ---------------- DUPLICATE ----------------
     [TestMethod]
-    public void CreateCard_Duplicate_ShouldFail()
+    public void CreateCard_Duplicate_ShouldThrow()
     {
         var customer = CreateCustomer();
 
         _service.CreateCard(customer.Id, 100000);
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.CreateCard(customer.Id, 150000);
         });
     }
 
-    // ----------------------------
-    // 5. UPDATE LIMIT SUCCESS
-    // ----------------------------
+    // ---------------- UPDATE VALID ----------------
     [TestMethod]
     public void UpdateLimit_Valid_ShouldUpdate()
     {
@@ -116,25 +102,21 @@ public class CreditCardServiceTests : TestBase
         Assert.AreEqual(200000, card.CashLimit);
     }
 
-    // ----------------------------
-    // 6. UPDATE INVALID LIMIT
-    // ----------------------------
+    // ---------------- UPDATE INVALID ----------------
     [TestMethod]
-    public void UpdateLimit_Invalid_ShouldThrowException()
+    public void UpdateLimit_Invalid_ShouldThrow()
     {
         var customer = CreateCustomer();
 
         _service.CreateCard(customer.Id, 100000);
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.UpdateLimit(customer.Id, 999);
         });
     }
 
-    // ----------------------------
-    // 7. GET CARD
-    // ----------------------------
+    // ---------------- GET ----------------
     [TestMethod]
     public void GetByCustomer_ShouldReturnCard()
     {

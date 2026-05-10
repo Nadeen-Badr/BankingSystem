@@ -1,11 +1,10 @@
-﻿using BankingSystem.Core.Data;
-using BankingSystem.Core.Enums;
+﻿using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
 using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.Core.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 
 [TestClass]
 public class CertificateServiceTests : TestBase
@@ -22,9 +21,6 @@ public class CertificateServiceTests : TestBase
         _service = new CertificateService(Context, _loggerMock);
     }
 
-    // -----------------------------
-    // Helper
-    // -----------------------------
     private Customer CreateCustomer()
     {
         var customer = new Customer
@@ -41,47 +37,38 @@ public class CertificateServiceTests : TestBase
         return customer;
     }
 
-    // -----------------------------
-    // 1. VALID BUY CERTIFICATE
-    // -----------------------------
+    // ---------------- VALID ----------------
     [TestMethod]
     public void BuyCertificate_ValidData_ShouldCreateCertificate()
     {
         var customer = CreateCustomer();
 
-        var result = _service.BuyCertificate(
-            customer.Id,
-            2000,
-            CertificatePeriod.OneYear);
+        var result = _service.BuyCertificate(customer.Id, 2000, CertificatePeriod.OneYear);
 
         Assert.IsNotNull(result);
         Assert.AreEqual(2000, result.Price);
         Assert.AreEqual(0.10m, result.InterestRate);
     }
 
-    // -----------------------------
-    // 2. INVALID PRICE
-    // -----------------------------
+    // ---------------- INVALID PRICE ----------------
     [TestMethod]
-    public void BuyCertificate_InvalidPrice_ShouldThrowException()
+    public void BuyCertificate_InvalidPrice_ShouldThrow()
     {
         var customer = CreateCustomer();
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.BuyCertificate(customer.Id, 900, CertificatePeriod.OneYear);
         });
     }
 
-    // -----------------------------
-    // 3. INVALID PERIOD
-    // -----------------------------
+    // ---------------- INVALID PERIOD ----------------
     [TestMethod]
-    public void BuyCertificate_InvalidPeriod_ShouldThrowException()
+    public void BuyCertificate_InvalidPeriod_ShouldThrow()
     {
         var customer = CreateCustomer();
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.BuyCertificate(customer.Id, 2000, (CertificatePeriod)999);
         });

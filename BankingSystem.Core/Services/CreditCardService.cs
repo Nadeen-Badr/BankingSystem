@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using BankingSystem.Core.Data;
+﻿using BankingSystem.Core.Data;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.Core.Exceptions;
+using System;
 
 namespace BankingSystem.Core.Services
 {
@@ -20,27 +19,22 @@ namespace BankingSystem.Core.Services
 
         public CreditCard CreateCard(int customerId, decimal cashLimit)
         {
-            // 1. Find the customer
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
-                throw new Exception("Customer not found");
+                throw new CustomerNotFoundException();
 
-            // 2. Check existence using Id (since it's a shared PK)
             var existingCard = _context.CreditCards.Find(customerId);
 
             if (existingCard != null)
-                throw new Exception("Customer already has a credit card");
+                throw new InvalidOperationBusinessException("Customer already has a credit card");
 
-            // 3. Business Logic Validation
-            if (!IsValidLimit(cashLimit))
-                throw new Exception("Invalid cash limit");
+            ValidateLimit(cashLimit);
 
-            // 4. Create the card
             var card = new CreditCard
             {
-                Id = customerId, // Primary Key is the CustomerId
-                Customer = customer, // Navigation property link
+                Id = customerId,
+                Customer = customer,
                 CashLimit = cashLimit,
                 ExpiryDate = DateTime.Now.AddYears(10)
             };
@@ -55,14 +49,12 @@ namespace BankingSystem.Core.Services
 
         public void UpdateLimit(int customerId, decimal newLimit)
         {
-            // Search by Id because CreditCard.Id == CustomerId
             var card = _context.CreditCards.Find(customerId);
 
             if (card == null)
-                throw new Exception("Credit card not found");
+                throw new CreditCardNotFoundException();
 
-            if (!IsValidLimit(newLimit))
-                throw new Exception("Invalid cash limit");
+            ValidateLimit(newLimit);
 
             card.CashLimit = newLimit;
 
@@ -73,13 +65,13 @@ namespace BankingSystem.Core.Services
 
         public CreditCard GetByCustomer(int customerId)
         {
-            // Direct lookup by ID is faster than FirstOrDefault
             return _context.CreditCards.Find(customerId);
         }
 
-        private bool IsValidLimit(decimal limit)
+        private void ValidateLimit(decimal limit)
         {
-            return limit >= 50000 && limit <= 250000;
+            if (limit < 50000 || limit > 250000)
+                throw new InvalidOperationBusinessException("Invalid cash limit (50k - 250k)");
         }
     }
 }
