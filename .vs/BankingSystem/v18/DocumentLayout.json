@@ -3,11 +3,47 @@
   "WorkspaceRootPath": "D:\\Dev\\Personal\\BankingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\services\\accountservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\services\\accountservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\services\\creditcardservicetests.cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\services\\creditcardservicetests.cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\creditcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\creditcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\services\\certificateservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\services\\certificateservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.tests\\testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D9C064F-18FA-425B-8151-EE1678F04475}|BankingSystem.Tests\\BankingSystem.Tests.csproj|solutionrelative:bankingsystem.tests\\testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\data\\bankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\data\\bankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|solutionrelative:bankingsystem.wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.wpf\\views\\customers\\editcustomerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.wpf\\views\\customers\\editcustomerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|solutionrelative:bankingsystem.wpf\\views\\customers\\editcustomerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -19,7 +55,7 @@
       "RelativeMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|solutionrelative:bankingsystem.wpf\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.wpf\\viewmodels\\customers\\editcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.wpf\\viewmodels\\customers\\editcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AEC384D-185C-4A86-BF0A-FD29F71358DF}|BankingSystem.WPF\\BankingSystem.WPF.csproj|solutionrelative:bankingsystem.wpf\\viewmodels\\customers\\editcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,15 +75,11 @@
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\models\\creditcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\creditcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\creditcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\migrations\\202605091635562_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\migrations\\202605091635562_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\migrations\\202605091635562_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -59,16 +91,8 @@
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\data\\bankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\data\\bankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|d:\\dev\\personal\\bankingsystem\\bankingsystem.core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\certificateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\enums\\certificateperiod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,10 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\models\\certificate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\models\\certificate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|solutionrelative:bankingsystem.core\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E2EF334-479E-4DF6-9AC2-AED8CEA41B0C}|BankingSystem.Core\\BankingSystem.Core.csproj|D:\\Dev\\Personal\\BankingSystem\\bankingsystem.core\\services\\loggingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -252,49 +272,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EditCustomerView.xaml",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
-              "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
-              "RelativeToolTip": "BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T16:55:44.628Z",
+              "DocumentIndex": 0,
+              "Title": "AccountServiceTests.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\AccountServiceTests.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\AccountServiceTests.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\AccountServiceTests.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\Services\\AccountServiceTests.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAcwOAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T07:52:33.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreditCardServiceTests.cs.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\Services\\CreditCardServiceTests.cs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T07:50:35.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CertificateServiceTests.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\Services\\CertificateServiceTests.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T07:34:33.382Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ServicesViewModel.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
-              "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
-              "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwDYAAAAJAAAAAAAAAA==",
+              "Title": "TestBase.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\TestBase.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\TestBase.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\TestBase.cs",
+              "RelativeToolTip": "BankingSystem.Tests\\TestBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:24:22.057Z",
+              "WhenOpened": "2026-05-10T07:32:49.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Migrations\\Configuration.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Migrations\\Configuration.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Migrations\\Configuration.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Migrations\\Configuration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T16:35:35.132Z",
+              "DocumentIndex": 5,
+              "Title": "app.config",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\app.config",
+              "RelativeDocumentMoniker": "BankingSystem.Tests\\app.config",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Tests\\app.config",
+              "RelativeToolTip": "BankingSystem.Tests\\app.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-10T07:28:43.262Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "ReportService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\ReportService.cs",
@@ -307,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\MainWindow.xaml",
@@ -319,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\App.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\App.xaml",
@@ -331,7 +378,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\AccountService.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\AccountService.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\AccountService.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Services\\AccountService.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAcwI0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T13:53:22.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "EditCustomerViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Customers\\EditCustomerViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Customers\\EditCustomerViewModel.cs",
@@ -344,20 +404,84 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 3,
+              "Title": "CreditCardService.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CreditCardService.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CreditCardService.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CreditCardService.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Services\\CreditCardService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwFQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T15:08:05.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Migrations\\Configuration.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:35:35.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BankingDbContext.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Data\\BankingDbContext.cs",
+              "RelativeDocumentMoniker": "BankingSystem.Core\\Data\\BankingDbContext.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Data\\BankingDbContext.cs",
+              "RelativeToolTip": "BankingSystem.Core\\Data\\BankingDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T10:36:13.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ServicesViewModel.cs",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
+              "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
+              "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Services\\ServicesViewModel.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAmwDYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T15:24:22.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "CertificateService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CertificateService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CertificateService.cs",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CertificateService.cs",
               "RelativeToolTip": "BankingSystem.Core\\Services\\CertificateService.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowBEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwGwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-09T08:40:51.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
+              "Title": "EditCustomerView.xaml",
+              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
+              "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
+              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
+              "RelativeToolTip": "BankingSystem.WPF\\Views\\Customers\\EditCustomerView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-09T16:55:44.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "CustomerService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CustomerService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CustomerService.cs",
@@ -370,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "MainWindowViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\MainWindowViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\MainWindowViewModel.cs",
@@ -383,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "NewCustomerView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\NewCustomerView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\NewCustomerView.xaml",
@@ -395,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "Customer.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\Customer.cs",
@@ -408,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "CreditCard.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\CreditCard.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\CreditCard.cs",
@@ -421,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 48,
               "Title": "AuthWindow.xaml.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml.cs",
@@ -429,22 +553,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T09:33:09.469Z"
+              "WhenOpened": "2026-05-09T09:33:09.469Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 45,
               "Title": "ExistingCustomerView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\ExistingCustomerView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\ExistingCustomerView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\ExistingCustomerView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Customers\\ExistingCustomerView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T10:28:27Z"
+              "WhenOpened": "2026-05-09T10:28:27Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "CustomerDashboardViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Customers\\CustomerDashboardViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Customers\\CustomerDashboardViewModel.cs",
@@ -452,11 +578,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Customers\\CustomerDashboardViewModel.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAgwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T10:54:09.872Z"
+              "WhenOpened": "2026-05-09T10:54:09.872Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "AuthWindowViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Auth\\AuthWindowViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Auth\\AuthWindowViewModel.cs",
@@ -464,22 +591,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Auth\\AuthWindowViewModel.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAqwDoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T09:31:15.012Z"
+              "WhenOpened": "2026-05-09T09:31:15.012Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 49,
               "Title": "CustomersView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\CustomersView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\CustomersView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\CustomersView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Customers\\CustomersView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T09:20:13.575Z"
+              "WhenOpened": "2026-05-09T09:20:13.575Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "ServicesView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Services\\ServicesView.xaml",
@@ -491,20 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CreditCardService.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CreditCardService.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\CreditCardService.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\CreditCardService.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Services\\CreditCardService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:08:05.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "202605091635562_InitialCreate.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Migrations\\202605091635562_InitialCreate.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Migrations\\202605091635562_InitialCreate.cs",
@@ -517,20 +633,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "BankingDbContext.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Data\\BankingDbContext.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Data\\BankingDbContext.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Data\\BankingDbContext.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Data\\BankingDbContext.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAA5wDAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T10:36:13.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "ICertificateService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
@@ -538,11 +641,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\ICertificateService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:03:07.129Z"
+              "WhenOpened": "2026-05-09T15:03:07.129Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "ICreditCardService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\ICreditCardService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\ICreditCardService.cs",
@@ -550,11 +654,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\ICreditCardService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:07:23.31Z"
+              "WhenOpened": "2026-05-09T15:07:23.31Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "CertificatePeriod.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Enums\\CertificatePeriod.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Enums\\CertificatePeriod.cs",
@@ -562,22 +667,23 @@
               "RelativeToolTip": "BankingSystem.Core\\Enums\\CertificatePeriod.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:39:49.216Z"
+              "WhenOpened": "2026-05-09T15:39:49.216Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 61,
               "Title": "Application.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\AppData\\Local\\Temp\\.vsdbgsrc\\d7aa31cddbd460100c2149a3b0b87091d686b8b0182b1e0fc227e84583e956ba\\Application.cs",
-              "ToolTip": "C:\\Users\\DELL\\AppData\\Local\\Temp\\.vsdbgsrc\\d7aa31cddbd460100c2149a3b0b87091d686b8b0182b1e0fc227e84583e956ba\\Application.cs [Read Only]",
+              "ToolTip": "C:\\Users\\DELL\\AppData\\Local\\Temp\\.vsdbgsrc\\d7aa31cddbd460100c2149a3b0b87091d686b8b0182b1e0fc227e84583e956ba\\Application.cs",
               "ViewState": "AgIAAFACAAAAAAAAAAApwGQCAAABAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T14:41:34.274Z",
-              "EditorCaption": " [Read Only]"
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 50,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Dashboard\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Dashboard\\DashboardViewModel.cs",
@@ -585,11 +691,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Dashboard\\DashboardViewModel.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAqwEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:43:20.274Z"
+              "WhenOpened": "2026-05-08T13:43:20.274Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 63,
               "Title": "ViewModelBase.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Base\\ViewModelBase.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Base\\ViewModelBase.cs",
@@ -597,11 +704,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Base\\ViewModelBase.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:36:07.304Z"
+              "WhenOpened": "2026-05-08T13:36:07.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 56,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\MainWindow.xaml.cs",
@@ -609,21 +717,23 @@
               "RelativeToolTip": "BankingSystem.WPF\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:22:51.405Z"
+              "WhenOpened": "2026-05-08T12:22:51.405Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 64,
               "Title": "ResourcePart.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
               "ToolTip": "C:\\Users\\DELL\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAMwCsAAAAEAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:20:19.6Z"
+              "WhenOpened": "2026-05-08T12:20:19.6Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "Certificate.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\Certificate.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\Certificate.cs",
@@ -631,23 +741,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Models\\Certificate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T10:50:07.114Z"
+              "WhenOpened": "2026-05-08T10:50:07.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\AccountService.cs",
-              "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\AccountService.cs",
-              "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\AccountService.cs",
-              "RelativeToolTip": "BankingSystem.Core\\Services\\AccountService.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAA5wDoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:53:22.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "LoggingService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\LoggingService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\LoggingService.cs",
@@ -655,22 +754,24 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\LoggingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T07:37:44.669Z"
+              "WhenOpened": "2026-05-09T07:37:44.669Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "DashboardView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T13:44:27.754Z"
+              "WhenOpened": "2026-05-08T13:44:27.754Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "DashboardView.xaml.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml.cs",
@@ -678,11 +779,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Dashboard\\DashboardView.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:09:50.964Z"
+              "WhenOpened": "2026-05-08T14:09:50.964Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "AccountsViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Accounts\\AccountsViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Accounts\\AccountsViewModel.cs",
@@ -690,11 +792,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Accounts\\AccountsViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:52:47.851Z"
+              "WhenOpened": "2026-05-08T13:52:47.851Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 60,
               "Title": "App.config",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\App.config",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\App.config",
@@ -702,22 +805,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-05-08T14:40:45.86Z"
+              "WhenOpened": "2026-05-08T14:40:45.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "AccountsView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Accounts\\AccountsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T13:54:19.954Z"
+              "WhenOpened": "2026-05-08T13:54:19.954Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 62,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\App.xaml.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\App.xaml.cs",
@@ -725,11 +830,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:10:40.119Z"
+              "WhenOpened": "2026-05-08T14:10:40.119Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "NewCustomerViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Customers\\NewCustomerViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Customers\\NewCustomerViewModel.cs",
@@ -737,11 +843,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Customers\\NewCustomerViewModel.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAgwHEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T08:47:12.993Z"
+              "WhenOpened": "2026-05-09T08:47:12.993Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "ICustomerService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\ICustomerService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\ICustomerService.cs",
@@ -749,11 +856,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\ICustomerService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:48:32.977Z"
+              "WhenOpened": "2026-05-08T13:48:32.977Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "ExistingCustomerViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Customers\\ExistingCustomerViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Customers\\ExistingCustomerViewModel.cs",
@@ -761,22 +869,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Customers\\ExistingCustomerViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T10:27:38.309Z"
+              "WhenOpened": "2026-05-09T10:27:38.309Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "CustomerDashboardView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\CustomerDashboardView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Customers\\CustomerDashboardView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Customers\\CustomerDashboardView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Customers\\CustomerDashboardView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T10:54:56.009Z"
+              "WhenOpened": "2026-05-09T10:54:56.009Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "AppSession.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Helpers\\AppSession.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Helpers\\AppSession.cs",
@@ -784,11 +894,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\Helpers\\AppSession.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T06:57:30.33Z"
+              "WhenOpened": "2026-05-09T06:57:30.33Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "CustomerViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Customers\\CustomerViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Customers\\CustomerViewModel.cs",
@@ -796,22 +907,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Customers\\CustomerViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:04:50.754Z"
+              "WhenOpened": "2026-05-08T12:04:50.754Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "AuthWindow.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Auth\\AuthWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T09:30:16.853Z"
+              "WhenOpened": "2026-05-09T09:30:16.853Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\IAccountService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\IAccountService.cs",
@@ -819,11 +932,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\IAccountService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:53:40.574Z"
+              "WhenOpened": "2026-05-08T13:53:40.574Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "SavingAccount.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\SavingAccount.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\SavingAccount.cs",
@@ -831,11 +945,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Models\\SavingAccount.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T12:02:16.413Z"
+              "WhenOpened": "2026-05-09T12:02:16.413Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "SalaryAccount.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\SalaryAccount.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\SalaryAccount.cs",
@@ -843,11 +958,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Models\\SalaryAccount.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T12:02:03.321Z"
+              "WhenOpened": "2026-05-09T12:02:03.321Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 51,
               "Title": "Cards.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Themes\\Cards.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Themes\\Cards.xaml",
@@ -859,18 +975,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 54,
               "Title": "LogsView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Admin\\LogsView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Admin\\LogsView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Admin\\LogsView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Admin\\LogsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T07:42:51.447Z"
+              "WhenOpened": "2026-05-09T07:42:51.447Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 47,
               "Title": "LogsViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Admin\\LogsViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Admin\\LogsViewModel.cs",
@@ -878,11 +995,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Admin\\LogsViewModel.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAADgvxkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T07:41:01.866Z"
+              "WhenOpened": "2026-05-09T07:41:01.866Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 53,
               "Title": "ILoggerService.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Services\\Interfaces\\ILoggerService.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Services\\Interfaces\\ILoggerService.cs",
@@ -890,11 +1008,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Services\\Interfaces\\ILoggerService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T07:39:15.21Z"
+              "WhenOpened": "2026-05-09T07:39:15.21Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 55,
               "Title": "BoolToVisibilityConverter.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Helpers\\BoolToVisibilityConverter.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Helpers\\BoolToVisibilityConverter.cs",
@@ -902,22 +1021,24 @@
               "RelativeToolTip": "BankingSystem.WPF\\Helpers\\BoolToVisibilityConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T06:57:57.272Z"
+              "WhenOpened": "2026-05-09T06:57:57.272Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 57,
               "Title": "LoginView.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Auth\\LoginView.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Views\\Auth\\LoginView.xaml",
               "ToolTip": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Views\\Auth\\LoginView.xaml",
               "RelativeToolTip": "BankingSystem.WPF\\Views\\Auth\\LoginView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-09T06:33:25.665Z"
+              "WhenOpened": "2026-05-09T06:33:25.665Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 46,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\ViewModels\\Auth\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\ViewModels\\Auth\\LoginViewModel.cs",
@@ -925,11 +1046,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\ViewModels\\Auth\\LoginViewModel.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA0wCQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T06:32:17.658Z"
+              "WhenOpened": "2026-05-09T06:32:17.658Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 58,
               "Title": "TextBoxes.xaml",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Themes\\TextBoxes.xaml",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Themes\\TextBoxes.xaml",
@@ -941,7 +1063,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 59,
               "Title": "UserRole.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Enums\\UserRole.cs",
@@ -949,11 +1071,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Enums\\UserRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T06:14:35.527Z"
+              "WhenOpened": "2026-05-09T06:14:35.527Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 52,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.WPF\\Commands\\RelayCommand.cs",
               "RelativeDocumentMoniker": "BankingSystem.WPF\\Commands\\RelayCommand.cs",
@@ -961,11 +1084,12 @@
               "RelativeToolTip": "BankingSystem.WPF\\Commands\\RelayCommand.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAB4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:04:00.83Z"
+              "WhenOpened": "2026-05-08T12:04:00.83Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "Account.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Models\\Account.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Models\\Account.cs",
@@ -973,11 +1097,12 @@
               "RelativeToolTip": "BankingSystem.Core\\Models\\Account.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T10:38:39.379Z"
+              "WhenOpened": "2026-05-08T10:38:39.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 65,
               "Title": "AccountType.cs",
               "DocumentMoniker": "D:\\Dev\\Personal\\BankingSystem\\BankingSystem.Core\\Enums\\AccountType.cs",
               "RelativeDocumentMoniker": "BankingSystem.Core\\Enums\\AccountType.cs",
@@ -985,7 +1110,8 @@
               "RelativeToolTip": "BankingSystem.Core\\Enums\\AccountType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T10:32:07.833Z"
+              "WhenOpened": "2026-05-08T10:32:07.833Z",
+              "EditorCaption": ""
             }
           ]
         }
