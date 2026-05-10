@@ -4,72 +4,112 @@
              Background="{StaticResource BackgroundBrush}"
              FontFamily="{StaticResource AppFont}">
 
-    <Grid Margin="20">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <Grid Margin="20">
 
-        <!-- TITLE -->
-        <TextBlock Text="Customer Dashboard"
-                   Style="{StaticResource TitleTextStyle}"
-                   Margin="0,0,0,25"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <!-- CARDS -->
-        <UniformGrid Grid.Row="1"
-                     Columns="2">
+            <!-- TITLE -->
+            <TextBlock Text="{Binding CustomerName}"
+                       Style="{StaticResource TitleTextStyle}"
+                       Margin="0,0,0,20"/>
 
-            <!-- Total Balance -->
-            <Border Style="{StaticResource DashboardCard}">
+            <!-- TOP STATS -->
+            <UniformGrid Grid.Row="1" Columns="5" Margin="0,0,0,20">
+
+                <Border Style="{StaticResource DashboardCard}">
+                    <StackPanel>
+                        <TextBlock Text="Balance" Style="{StaticResource MutedTextStyle}"/>
+                        <TextBlock Text="{Binding TotalBalance}"
+                                   Style="{StaticResource SectionHeaderTextStyle}"
+                                   FontSize="22"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource DashboardCard}">
+                    <StackPanel>
+                        <TextBlock Text="Accounts" Style="{StaticResource MutedTextStyle}"/>
+                        <TextBlock Text="{Binding Accounts.Count}"
+                                   Style="{StaticResource SectionHeaderTextStyle}"
+                                   FontSize="22"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource DashboardCard}">
+                    <StackPanel>
+                        <TextBlock Text="Transactions" Style="{StaticResource MutedTextStyle}"/>
+                        <TextBlock Text="{Binding Transactions.Count}"
+                                   Style="{StaticResource SectionHeaderTextStyle}"
+                                   FontSize="22"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource DashboardCard}">
+                    <StackPanel>
+                        <TextBlock Text="Certificates" Style="{StaticResource MutedTextStyle}"/>
+                        <TextBlock Text="{Binding CertificatesCount}"
+                                   Style="{StaticResource SectionHeaderTextStyle}"
+                                   FontSize="22"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource DashboardCard}">
+                    <StackPanel>
+                        <TextBlock Text="Cards" Style="{StaticResource MutedTextStyle}"/>
+                        <TextBlock Text="{Binding CreditCardsCount}"
+                                   Style="{StaticResource SectionHeaderTextStyle}"
+                                   FontSize="22"/>
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+
+            <!-- ONLY DETAILED SECTION -->
+
+            <Border Grid.Row="2"
+                    Style="{StaticResource DashboardCard}">
+
                 <StackPanel>
-                    <TextBlock Text="Total Balance"
-                               Style="{StaticResource MutedTextStyle}"/>
 
-                    <TextBlock Text="{Binding TotalBalance}"
-                               Style="{StaticResource SectionHeaderTextStyle}"
-                               FontSize="26"/>
-                </StackPanel>
-            </Border>
-
-            <!-- Accounts -->
-            <Border Style="{StaticResource DashboardCard}">
-                <StackPanel>
-                    <TextBlock Text="Accounts"
-                               Style="{StaticResource MutedTextStyle}"/>
-
-                    <TextBlock Text="{Binding Accounts.Count}"
-                               Style="{StaticResource SectionHeaderTextStyle}"
-                               FontSize="26"/>
-                </StackPanel>
-            </Border>
-
-            <!-- Certificates -->
-            <Border Style="{StaticResource DashboardCard}">
-                <StackPanel>
-                    <TextBlock Text="Certificates"
-                               Style="{StaticResource MutedTextStyle}"/>
-
-                    <TextBlock Text="{Binding Certificates.Count}"
-                               Style="{StaticResource SectionHeaderTextStyle}"
-                               FontSize="26"/>
-                </StackPanel>
-            </Border>
-
-            <!-- Transactions -->
-            <Border Style="{StaticResource DashboardCard}">
-                <StackPanel>
                     <TextBlock Text="Recent Transactions"
-                               Style="{StaticResource MutedTextStyle}"/>
+                               Style="{StaticResource MutedTextStyle}"
+                               Margin="0,0,0,10"/>
 
-                    <TextBlock Text="{Binding Transactions.Count}"
-                               Style="{StaticResource SectionHeaderTextStyle}"
-                               FontSize="26"/>
+                    <ListBox ItemsSource="{Binding Transactions}"
+                             IsHitTestVisible="False"
+                             Focusable="False"
+                             Background="{StaticResource SurfaceBrush}"
+                             BorderThickness="0">
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="5"
+                                        Padding="10"
+                                        Background="{StaticResource BackgroundBrush}">
+
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Amount}"/>
+                                        <TextBlock Text="{Binding Type}"/>
+                                        <TextBlock Text="{Binding Date}"/>
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+
                 </StackPanel>
+
             </Border>
 
-        </UniformGrid>
+        </Grid>
 
-    </Grid>
+    </ScrollViewer>
 
 </UserControl>

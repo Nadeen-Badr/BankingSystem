@@ -23,6 +23,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         private readonly IAccountService _accountService;
         private readonly ICertificateService _certificateService;
         private readonly ICreditCardService _creditCardService;
+        private readonly IReportService _reportService;
         private object _currentView;
 
         public object CurrentView
@@ -51,6 +52,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             _accountService = new AccountService(_context, _logger);
             _certificateService = new CertificateService(_context, _logger);
             _creditCardService = new CreditCardService(_context, _logger);
+            _reportService = new ReportService(_context);
 
             AppSession.RoleChanged += OnRoleChanged;
 
@@ -111,11 +113,11 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         {
             if (AppSession.CurrentRole == UserRole.Admin)
             {
-                CurrentView = new DashboardViewModel();
+                CurrentView = new DashboardViewModel(_reportService);
             }
             else if (AppSession.CurrentRole == UserRole.Customer)
             {
-                CurrentView = new CustomerDashboardViewModel(_customerService);
+                CurrentView = new CustomerDashboardViewModel(_reportService);
             }
             else
             {

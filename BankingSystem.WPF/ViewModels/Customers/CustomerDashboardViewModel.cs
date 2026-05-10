@@ -1,61 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Collections.ObjectModel;
-using System.Linq;
-using BankingSystem.Core.Models;
+﻿using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.WPF.ViewModels.Base;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BankingSystem.WPF.ViewModels.Customers
 {
     public class CustomerDashboardViewModel : ViewModelBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly IReportService _reportService;
 
-        public CustomerDashboardViewModel(ICustomerService customerService)
+        public CustomerDashboardViewModel(IReportService reportService)
         {
-            _customerService = customerService;
-
+            _reportService = reportService;
             LoadCustomerData();
         }
 
-        // ================= CUSTOMER INFO =================
-        public string CustomerName { get; set; }
-        public int CustomerId { get; set; }
+        private string _customerName;
+        public string CustomerName
+        {
+            get => _customerName;
+            set => SetProperty(ref _customerName, value);
+        }
 
-        // ================= FINANCIAL DATA =================
-        public decimal TotalBalance { get; set; }
+        private int _customerId;
+        public int CustomerId
+        {
+            get => _customerId;
+            set => SetProperty(ref _customerId, value);
+        }
+
+        private decimal _totalBalance;
+        public decimal TotalBalance
+        {
+            get => _totalBalance;
+            set => SetProperty(ref _totalBalance, value);
+        }
 
         public ObservableCollection<Account> Accounts { get; set; }
         public ObservableCollection<Transaction> Transactions { get; set; }
+        public ObservableCollection<Certificate> Certificates { get; set; }
+        public ObservableCollection<CreditCard> CreditCards { get; set; }
 
-        // ================= LOAD DATA =================
+        // ✅ NEW COUNTERS
+        public int CertificatesCount => Certificates?.Count ?? 0;
+        public int CreditCardsCount => CreditCards?.Count ?? 0;
+
         private void LoadCustomerData()
         {
-            var customer = _customerService
-                .GetAllCustomers()
-                .FirstOrDefault(c => c.Id == AppSession.CurrentCustomer?.Id);
+            var customerId = AppSession.CurrentCustomer?.Id;
+            if (customerId == null) return;
 
-            if (customer == null)
-                return;
+            var report = _reportService.GetCustomerReport(customerId.Value);
+            if (report == null) return;
 
-            CustomerName = customer.Name;
-            CustomerId = customer.Id;
+            CustomerName = report.CustomerName;
+            CustomerId = customerId.Value;
 
-            Accounts = new ObservableCollection<Account>(customer.Accounts ?? new List<Account>());
+            Accounts = new ObservableCollection<Account>(report.Accounts ?? new List<Account>());
+            Transactions = new ObservableCollection<Transaction>(report.Transactions ?? new List<Transaction>());
+            Certificates = new ObservableCollection<Certificate>(report.Certificates ?? new List<Certificate>());
+            CreditCards = new ObservableCollection<CreditCard>(report.CreditCards ?? new List<CreditCard>());
 
-            Transactions = new ObservableCollection<Transaction>(
-                customer.Accounts?
-                    .SelectMany(a => a.Transactions ?? new List<Transaction>())
-                    .OrderByDescending(t => t.Date)
-                    .Take(10)
-            );
-
-            TotalBalance = Accounts.Sum(a => a.Balance);
+            TotalBalance = report.TotalBalance;
         }
     }
 }

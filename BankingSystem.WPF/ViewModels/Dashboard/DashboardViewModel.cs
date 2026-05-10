@@ -1,69 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.WPF.ViewModels.Base;
-using BankingSystem.Core.Data;
-using BankingSystem.Core.Services;
 
 namespace BankingSystem.WPF.ViewModels.Dashboard
 {
     public class DashboardViewModel : ViewModelBase
     {
-        private readonly ReportService _reportService;
+        private readonly IReportService _reportService;
+
+        public DashboardViewModel(IReportService reportService)
+        {
+            _reportService = reportService;
+            LoadStats();
+        }
 
         private int _totalCustomers;
-        private int _totalAccounts;
-        private decimal _totalBalance;
-        private int _totalCertificates;
-        private int _totalCreditCards;
-
         public int TotalCustomers
         {
             get => _totalCustomers;
             set => SetProperty(ref _totalCustomers, value);
         }
 
+        private int _totalAccounts;
         public int TotalAccounts
         {
             get => _totalAccounts;
             set => SetProperty(ref _totalAccounts, value);
         }
 
+        private decimal _totalBalance;
         public decimal TotalBalance
         {
             get => _totalBalance;
             set => SetProperty(ref _totalBalance, value);
         }
 
+        private int _totalCertificates;
         public int TotalCertificates
         {
             get => _totalCertificates;
             set => SetProperty(ref _totalCertificates, value);
         }
 
+        private int _totalCreditCards;
         public int TotalCreditCards
         {
             get => _totalCreditCards;
             set => SetProperty(ref _totalCreditCards, value);
         }
 
-        public DashboardViewModel()
-        {
-            var context = new BankingDbContext();
-            _reportService = new ReportService(context);
-
-            LoadStats();
-        }
-
         private void LoadStats()
         {
-            TotalCustomers = _reportService.GetTotalCustomers();
-            TotalAccounts = _reportService.GetTotalAccounts();
-            //TotalBalance = _reportService.GetTotalBalance();
-            TotalCertificates = _reportService.GetTotalCertificates();
-            TotalCreditCards = _reportService.GetTotalCreditCards();
+            var stats = _reportService.GetBankStatistics();
+
+            TotalCustomers = stats.TotalCustomers;
+            TotalAccounts = stats.TotalAccounts;
+            TotalBalance = stats.TotalAssets;
+            TotalCertificates = stats.TotalCertificates;
+            TotalCreditCards = stats.TotalCreditCards;
         }
     }
 }

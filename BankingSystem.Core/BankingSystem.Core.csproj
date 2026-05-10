@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BankingDbContext.cs" />
+    <Compile Include="Dtos\BankStatisticsDto.cs" />
+    <Compile Include="Dtos\CustomerReportDto.cs" />
     <Compile Include="Enums\AccountType.cs" />
     <Compile Include="Enums\CertificatePeriod.cs" />
     <Compile Include="Enums\Gender.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Services\Interfaces\ICreditCardService.cs" />
     <Compile Include="Services\Interfaces\ICustomerService.cs" />
     <Compile Include="Services\Interfaces\ILoggerService.cs" />
+    <Compile Include="Services\Interfaces\IReportService.cs" />
     <Compile Include="Services\LoggingService.cs" />
     <Compile Include="Services\ReportService.cs" />
   </ItemGroup>

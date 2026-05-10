@@ -21,7 +21,6 @@
                      Columns="3"
                      Rows="2">
 
-            <!-- Customers -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Customers"
@@ -32,7 +31,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Accounts -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Accounts"
@@ -43,7 +41,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Total Balance -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Total Balance"
@@ -54,7 +51,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Certificates -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Certificates"
@@ -65,7 +61,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Credit Cards -->
             <Border Style="{StaticResource DashboardCard}">
                 <StackPanel>
                     <TextBlock Text="Credit Cards"
@@ -79,5 +74,4 @@
         </UniformGrid>
 
     </Grid>
-
 </UserControl>
