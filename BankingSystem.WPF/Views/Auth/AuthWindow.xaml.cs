@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 
 namespace BankingSystem.WPF.Views.Auth
 {
-    /// <summary>
-    /// Interaction logic for AuthWindow.xaml
-    /// </summary>
+  
     public partial class AuthWindow : Window
     {
         public AuthWindow()
         {
             InitializeComponent();
+
             DataContext = new AuthWindowViewModel(this);
         }
     }

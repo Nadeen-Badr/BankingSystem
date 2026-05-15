@@ -1,3 +1,7 @@
+D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.AssemblyReference.cache
+D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.Migrations.InitialCreate.resources
+D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.GenerateResource.cache
+D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.CoreCompileInputs.cache
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\BankingSystem.Core.dll.config
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\BankingSystem.Core.dll
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\BankingSystem.Core.pdb
@@ -9,10 +13,6 @@ D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\BouncyCastle.Cryptogr
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\EntityFramework.xml
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\EntityFramework.SqlServer.xml
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\bin\Debug\itextsharp.xml
-D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.AssemblyReference.cache
-D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.Migrations.InitialCreate.resources
-D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.GenerateResource.cache
-D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.csproj.CoreCompileInputs.cache
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingS.7C52500F.Up2Date
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.dll
 D:\Dev\Personal\BankingSystem\BankingSystem.Core\obj\Debug\BankingSystem.Core.pdb

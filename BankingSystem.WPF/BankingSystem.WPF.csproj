@@ -69,16 +69,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helpers\AppServices.cs" />
     <Compile Include="Helpers\AppSession.cs" />
     <Compile Include="Helpers\BoolToVisibilityConverter.cs" />
     <Compile Include="Helpers\ErrorHandler.cs" />
+    <Compile Include="Helpers\ServiceFactory.cs" />
     <Compile Include="ViewModels\Accounts\AccountsViewModel.cs" />
     <Compile Include="ViewModels\Admin\LogsViewModel.cs" />
     <Compile Include="ViewModels\Auth\AuthWindowViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Compile Include="ViewModels\Customers\CustomerDashboardViewModel.cs" />
-    <Compile Include="ViewModels\Customers\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Customers\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\Customers\ExistingCustomerViewModel.cs" />
     <Compile Include="ViewModels\Customers\NewCustomerViewModel.cs" />
@@ -99,9 +100,6 @@
     </Compile>
     <Compile Include="Views\Customers\CustomerDashboardView.xaml.cs">
       <DependentUpon>CustomerDashboardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Customers\CustomersView.xaml.cs">
-      <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customers\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
@@ -171,10 +169,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customers\CustomerDashboardView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Customers\CustomersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

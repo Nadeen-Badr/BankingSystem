@@ -1,9 +1,11 @@
 ﻿using BankingSystem.Core.Data;
 using BankingSystem.Core.Enums;
+using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
-using BankingSystem.Core.Exceptions;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BankingSystem.Core.Services
 {
@@ -106,5 +108,13 @@ namespace BankingSystem.Core.Services
                 throw new InvalidOperationBusinessException("Invalid certificate period");
             };
         }
+        public List<Certificate> GetByCustomer(int customerId)
+        {
+            return _context.Certificates
+                .Where(c => c.CustomerId == customerId)
+                .ToList();
+        }
     }
-}
+     
+
+    }

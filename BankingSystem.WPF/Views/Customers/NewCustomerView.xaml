@@ -22,44 +22,48 @@
                 <TextBlock Text="Name"
                            Style="{StaticResource MutedTextStyle}"
                            Margin="0,5"/>
-                <TextBox Text="{Binding Name}"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,10"/>
 
                 <!-- AGE -->
                 <TextBlock Text="Age"
                            Style="{StaticResource MutedTextStyle}"
-                           Margin="0,10,0,5"/>
-                <TextBox Text="{Binding Age}"/>
+                           Margin="0,5"/>
+                <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,10"/>
 
                 <!-- ADDRESS -->
                 <TextBlock Text="Address"
                            Style="{StaticResource MutedTextStyle}"
-                           Margin="0,10,0,5"/>
-                <TextBox Text="{Binding Address}"/>
+                           Margin="0,5"/>
+                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,10"/>
 
-                <!-- GENDER (RESTORED ORIGINAL WORKING VERSION) -->
+                <!-- GENDER -->
                 <TextBlock Text="Gender"
                            Style="{StaticResource MutedTextStyle}"
-                           Margin="0,10,0,5"/>
+                           Margin="0,5"/>
 
                 <ComboBox ItemsSource="{Binding Genders}"
-          SelectedItem="{Binding Gender}" />
+                          SelectedItem="{Binding Gender}"
+                          Margin="0,0,0,15"/>
 
                 <!-- CREATE BUTTON -->
                 <Button Content="Create Customer"
                         Command="{Binding CreateCustomerCommand}"
                         Background="{StaticResource PrimaryBrush}"
-                        Margin="0,20,0,5"/>
+                        Margin="0,10,0,5"/>
 
                 <!-- BACK BUTTON -->
                 <Button Content="Back"
                         Command="{Binding BackCommand}"
                         Background="{StaticResource SurfaceBrush}"/>
 
+                <!-- MESSAGE -->
                 <TextBlock Text="{Binding Message}"
-           Foreground="LightGreen"
-           FontWeight="Bold"
-           Margin="0,10,0,0"
-           HorizontalAlignment="Center"/>
+                           FontWeight="Bold"
+                           Margin="0,12,0,0"
+                           HorizontalAlignment="Center"/>
 
             </StackPanel>
 

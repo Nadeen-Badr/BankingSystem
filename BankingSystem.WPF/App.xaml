@@ -31,7 +31,7 @@
                 <ResourceDictionary Source="Themes/Buttons.xaml"/>
                 <ResourceDictionary Source="Themes/TextBoxes.xaml"/>
                 <ResourceDictionary Source="Themes/Cards.xaml"/>
-          
+
             </ResourceDictionary.MergedDictionaries>
             <!-- 🔥 Converters (ADD HERE) -->
             <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
@@ -42,9 +42,6 @@
                 <viewDash:DashboardView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmCust:CustomersViewModel}">
-                <viewCust:CustomersView/>
-            </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmAcc:AccountsViewModel}">
                 <viewAcc:AccountsView/>

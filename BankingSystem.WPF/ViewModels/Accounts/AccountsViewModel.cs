@@ -11,15 +11,21 @@ namespace BankingSystem.WPF.ViewModels.Accounts
 {
     public class AccountsViewModel : ViewModelBase
     {
-        private readonly IAccountService _accountService;
+        private readonly AppServices _services;
 
-        public ObservableCollection<Account> Accounts { get; set; }
+        public ObservableCollection<Account> Accounts { get; }
 
         private Account _selectedAccount;
         public Account SelectedAccount
         {
             get => _selectedAccount;
-            set => SetProperty(ref _selectedAccount, value);
+            set
+            {
+                SetProperty(ref _selectedAccount, value);
+
+                // refresh buttons (Deposit/Withdraw/Close)
+                CommandManager.InvalidateRequerySuggested();
+            }
         }
 
         private decimal _amount;
@@ -29,6 +35,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
             set => SetProperty(ref _amount, value);
         }
 
+        // ================= COMMANDS =================
         public ICommand LoadAccountsCommand { get; }
         public ICommand CreateSavingCommand { get; }
         public ICommand CreateSalaryCommand { get; }
@@ -36,20 +43,34 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         public ICommand WithdrawCommand { get; }
         public ICommand CloseAccountCommand { get; }
 
-        public AccountsViewModel(IAccountService accountService)
+        public AccountsViewModel(AppServices services)
         {
-            _accountService = accountService;
+            _services = services;
 
             Accounts = new ObservableCollection<Account>();
 
-            LoadAccountsCommand = new RelayCommand(_ => LoadAccounts());
-            CreateSavingCommand = new RelayCommand(_ => CreateSaving());
-            CreateSalaryCommand = new RelayCommand(_ => CreateSalary());
-            WithdrawCommand = new RelayCommand(_ => Withdraw(), _ => CanExecuteAccountAction());
-            DepositCommand = new RelayCommand(_ => Deposit(), _ => CanExecuteAccountAction());
-            CloseAccountCommand = new RelayCommand(_ => CloseAccount(), _ => CanExecuteAccountAction());
+            LoadAccountsCommand = new RelayCommand(_ => ExecuteSafely(LoadAccounts));
+            CreateSavingCommand = new RelayCommand(_ => ExecuteSafely(CreateSaving));
+            CreateSalaryCommand = new RelayCommand(_ => ExecuteSafely(CreateSalary));
+
+            DepositCommand = new RelayCommand(_ => ExecuteSafely(Deposit), _ => CanExecuteTransaction());
+            WithdrawCommand = new RelayCommand(_ => ExecuteSafely(Withdraw), _ => CanExecuteTransaction());
+            CloseAccountCommand = new RelayCommand(_ => ExecuteSafely(CloseAccount), _ => SelectedAccount != null);
 
             LoadAccounts();
+        }
+
+        // ================= SAFE WRAPPER =================
+        private void ExecuteSafely(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler.Handle(ex);
+            }
         }
 
         // ================= LOAD =================
@@ -60,7 +81,7 @@ namespace BankingSystem.WPF.ViewModels.Accounts
                 if (AppSession.CurrentCustomerId == null)
                     return;
 
-                var data = _accountService.GetAccountsByCustomer(AppSession.CurrentCustomerId.Value);
+                var data = _services.AccountService.GetAccountsByCustomer(AppSession.CurrentCustomerId.Value);
 
                 Accounts.Clear();
 
@@ -76,79 +97,62 @@ namespace BankingSystem.WPF.ViewModels.Accounts
         // ================= CREATE =================
         private void CreateSaving()
         {
-            try
-            {
-                _accountService.CreateSavingAccount(AppSession.CurrentCustomerId.Value);
-                LoadAccounts();
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Handle(ex);
-            }
+            EnsureCustomer();
+            _services.AccountService.CreateSavingAccount(AppSession.CurrentCustomerId.Value);
+            LoadAccounts();
         }
 
         private void CreateSalary()
         {
-            try
-            {
-                _accountService.CreateSalaryAccount(AppSession.CurrentCustomerId.Value);
-                LoadAccounts();
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Handle(ex);
-            }
+            EnsureCustomer();
+            _services.AccountService.CreateSalaryAccount(AppSession.CurrentCustomerId.Value);
+            LoadAccounts();
         }
 
         // ================= TRANSACTIONS =================
         private void Deposit()
         {
-            if (SelectedAccount == null) return;
-
-            try
-            {
-                _accountService.Deposit(SelectedAccount.Id, Amount);
-                LoadAccounts();
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Handle(ex);
-            }
+            ValidateTransaction();
+            _services.AccountService.Deposit(SelectedAccount.Id, Amount);
+            LoadAccounts();
         }
 
         private void Withdraw()
         {
-            if (SelectedAccount == null) return;
-
-            try
-            {
-                _accountService.Withdraw(SelectedAccount.Id, Amount);
-                LoadAccounts();
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Handle(ex);
-            }
+            ValidateTransaction();
+            _services.AccountService.Withdraw(SelectedAccount.Id, Amount);
+            LoadAccounts();
         }
 
         // ================= CLOSE =================
         private void CloseAccount()
         {
-            if (SelectedAccount == null) return;
+            if (SelectedAccount == null)
+                throw new InvalidOperationException("No account selected.");
 
-            try
-            {
-                _accountService.CloseAccount(SelectedAccount.Id);
-                LoadAccounts();
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Handle(ex);
-            }
+            _services.AccountService.CloseAccount(SelectedAccount.Id);
+            LoadAccounts();
         }
-        private bool CanExecuteAccountAction()
+
+        // ================= VALIDATION =================
+        private bool CanExecuteTransaction()
         {
-            return SelectedAccount != null;
+            return SelectedAccount != null && Amount > 0;
+        }
+
+        private void EnsureCustomer()
+        {
+            if (AppSession.CurrentCustomerId == null)
+                throw new InvalidOperationException("No customer selected.");
+        }
+
+        private void ValidateTransaction()
+        {
+            if (SelectedAccount == null)
+                throw new InvalidOperationException("No account selected.");
+
+            if (Amount <= 0)
+                throw new InvalidOperationException("Amount must be greater than zero.");
         }
     }
 }

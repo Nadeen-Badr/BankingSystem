@@ -12,17 +12,25 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <!-- TITLE -->
                 <TextBlock Text="System Logs"
                            Style="{StaticResource TitleTextStyle}"
-                           Margin="0,0,0,15"/>
+                           Margin="0,0,0,10"/>
+
+                <!-- REFRESH BUTTON -->
+                <Button Content="Refresh Logs"
+                        Command="{Binding RefreshLogsCommand}"
+                        Width="120"
+                        Margin="0,0,0,15"
+                        Grid.Row="1"/>
 
                 <!-- LOGS BOX -->
                 <TextBox Text="{Binding Logs}"
-                         Grid.Row="1"
+                         Grid.Row="2"
                          IsReadOnly="True"
                          VerticalScrollBarVisibility="Auto"
                          HorizontalScrollBarVisibility="Auto"

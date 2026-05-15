@@ -27,12 +27,12 @@
                 <!-- AGE -->
                 <TextBlock Text="Age"
                            Style="{StaticResource MutedTextStyle}"/>
-                <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="0,5,0,12"/>
+                <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <!-- ADDRESS -->
                 <TextBlock Text="Address"
-                           Style="{StaticResource MutedTextStyle}"/>
+                           Style="{StaticResource MutedTextStyle}"
+                           Margin="0,12,0,0"/>
                 <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
                          Margin="0,5,0,12"/>
 

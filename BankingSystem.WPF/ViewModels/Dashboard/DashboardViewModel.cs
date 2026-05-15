@@ -1,15 +1,16 @@
-﻿using BankingSystem.Core.Services.Interfaces;
+﻿using BankingSystem.WPF.Helpers;
 using BankingSystem.WPF.ViewModels.Base;
+using System;
 
 namespace BankingSystem.WPF.ViewModels.Dashboard
 {
     public class DashboardViewModel : ViewModelBase
     {
-        private readonly IReportService _reportService;
+        private readonly AppServices _services;
 
-        public DashboardViewModel(IReportService reportService)
+        public DashboardViewModel(AppServices services)
         {
-            _reportService = reportService;
+            _services = services;
             LoadStats();
         }
 
@@ -50,13 +51,20 @@ namespace BankingSystem.WPF.ViewModels.Dashboard
 
         private void LoadStats()
         {
-            var stats = _reportService.GetBankStatistics();
+            try
+            {
+                var stats = _services.ReportService.GetBankStatistics();
 
-            TotalCustomers = stats.TotalCustomers;
-            TotalAccounts = stats.TotalAccounts;
-            TotalBalance = stats.TotalAssets;
-            TotalCertificates = stats.TotalCertificates;
-            TotalCreditCards = stats.TotalCreditCards;
+                TotalCustomers = stats.TotalCustomers;
+                TotalAccounts = stats.TotalAccounts;
+                TotalBalance = stats.TotalAssets;
+                TotalCertificates = stats.TotalCertificates;
+                TotalCreditCards = stats.TotalCreditCards;
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler.Handle(ex);
+            }
         }
     }
 }

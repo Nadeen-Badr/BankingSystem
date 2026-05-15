@@ -1,7 +1,8 @@
 ﻿using BankingSystem.Core.Data;
+using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services.Interfaces;
-using BankingSystem.Core.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -63,5 +64,18 @@ public class CustomerService : ICustomerService
     public List<Customer> GetAllCustomers()
     {
         return _context.Customers.ToList();
+    }
+    public Customer GetCustomerById(int id)
+    {
+        try
+        {
+            return _context.Customers
+                .FirstOrDefault(c => c.Id == id);
+        }
+        catch (Exception ex)
+        {
+            _logger.Log($"GetCustomerById failed: {ex.Message}");
+            throw;
+        }
     }
 }

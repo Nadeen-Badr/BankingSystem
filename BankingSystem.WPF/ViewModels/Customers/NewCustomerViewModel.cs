@@ -1,123 +1,85 @@
 ﻿using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
-using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.WPF;
 using BankingSystem.WPF.Commands;
+using BankingSystem.WPF.Helpers;
 using BankingSystem.WPF.ViewModels.Base;
 using System;
 using System.Windows.Input;
-
 namespace BankingSystem.WPF.ViewModels.Customers
 {
     public class NewCustomerViewModel : ViewModelBase
     {
-        private readonly ICustomerService _customerService;
-        private readonly ILoggerService _logger;
+        private readonly AppServices _services;
 
-        public NewCustomerViewModel(ICustomerService customerService, ILoggerService logger)
+        public NewCustomerViewModel(AppServices services)
         {
-            _customerService = customerService;
-            _logger = logger;
-            CreateCustomerCommand = new RelayCommand(_ => CreateCustomer(), _ => CanCreateCustomer());
-           
+            _services = services;
+
+            CreateCustomerCommand = new RelayCommand(_ => ExecuteSafely(CreateCustomer), _ => CanCreate());
             BackCommand = new RelayCommand(_ => RequestBackToLogin?.Invoke());
+
+            Gender = Gender.Male;
         }
 
-        // ================= INPUTS =================
-        private string _name;
-        public string Name
-        {
-            get => _name;
-            set => SetProperty(ref _name, value);
-        }
-
-        private int _age;
-        public int Age
-        {
-            get => _age;
-            set => SetProperty(ref _age, value);
-        }
-
-        private Gender _gender;
-        public Gender Gender
-        {
-            get => _gender;
-            set => SetProperty(ref _gender, value);
-        }
-
-        private string _address;
-        public string Address
-        {
-            get => _address;
-            set => SetProperty(ref _address, value);
-        }
-
-        public Array Genders { get; } = Enum.GetValues(typeof(Gender));
-
-        // ================= UX MESSAGE =================
-        private string _message;
-        public string Message
-        {
-            get => _message;
-            set => SetProperty(ref _message, value);
-        }
-
-        private bool _isSuccess;
-        public bool IsSuccess
-        {
-            get => _isSuccess;
-            set => SetProperty(ref _isSuccess, value);
-        }
-
-        // ================= COMMANDS =================
         public ICommand CreateCustomerCommand { get; }
         public ICommand BackCommand { get; }
 
         public event Action RequestBackToLogin;
+        public Array Genders => Enum.GetValues(typeof(Gender));
+        private string _name;
+        public string Name { get => _name; set => SetProperty(ref _name, value); }
 
-        // ================= CORE LOGIC =================
+        private int _age;
+        public int Age { get => _age; set => SetProperty(ref _age, value); }
+
+        private string _address;
+        public string Address { get => _address; set => SetProperty(ref _address, value); }
+
+        private Gender _gender;
+        public Gender Gender { get => _gender; set => SetProperty(ref _gender, value); }
+
+        private string _message;
+        public string Message { get => _message; set => SetProperty(ref _message, value); }
+
+        private bool _isSuccess;
+        public bool IsSuccess { get => _isSuccess; set => SetProperty(ref _isSuccess, value); }
+
         private void CreateCustomer()
         {
-            try
+            _services.CustomerService.CreateCustomer(new Customer
             {
-                var customer = new Customer
-                {
-                    Name = Name,
-                    Age = Age,
-                    Gender = Gender,
-                    Address = Address
-                };
+                Name = Name,
+                Age = Age,
+                Gender = Gender,
+                Address = Address
+            });
 
-                _customerService.CreateCustomer(customer);
+            _services.Logger.Log($"NEW_CUSTOMER | {Name}");
 
-                _logger.Log($"NEW_CUSTOMER_CREATED | Name:{Name}");
+            IsSuccess = true;
+            Message = "Created successfully";
 
-                // ✅ SUCCESS UX
-                IsSuccess = true;
-                Message = "Customer created successfully!";
+            Name = "";
+            Age = 0;
+            Address = "";
+            Gender = Gender.Male;
+        }
 
-                ResetForm();
-            }
+        private bool CanCreate()
+            => !string.IsNullOrWhiteSpace(Name)
+            && !string.IsNullOrWhiteSpace(Address)
+            && Age > 18;
+
+        private void ExecuteSafely(Action action)
+        {
+            try { action(); }
             catch (Exception ex)
             {
                 IsSuccess = false;
-                Message = $"Error: {ex.Message}";
+                Message = ex.Message;
+                ErrorHandler.Handle(ex);
             }
-        }
-
-        // ================= RESET FORM =================
-        private void ResetForm()
-        {
-            Name = string.Empty;
-            Age = 0;
-            Address = string.Empty;
-            Gender = Gender.Male;
-        }
-        private bool CanCreateCustomer()
-        {
-            return !string.IsNullOrWhiteSpace(Name)
-                && !string.IsNullOrWhiteSpace(Address)
-                && Age > 0
-                && (Gender == Gender.Male || Gender == Gender.Female);
         }
     }
 }

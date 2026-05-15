@@ -1,7 +1,5 @@
-﻿using BankingSystem.Core.Data;
-using BankingSystem.Core.Enums;
+﻿using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
-using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.WPF.Commands;
 using BankingSystem.WPF.Helpers;
 using BankingSystem.WPF.ViewModels.Base;
@@ -15,11 +13,27 @@ namespace BankingSystem.WPF.ViewModels.Services
 {
     public class ServicesViewModel : ViewModelBase
     {
-        private readonly ICertificateService _certificateService;
-        private readonly ICreditCardService _creditCardService;
-        private readonly BankingDbContext _context;
+        private readonly AppServices _services;
 
-        public ObservableCollection<Certificate> Certificates { get; set; }
+        public ServicesViewModel(AppServices services)
+        {
+            _services = services;
+
+            Certificates = new ObservableCollection<Certificate>();
+
+            LoadCommand = new RelayCommand(_ => ExecuteSafely(Load));
+            BuyCertificateCommand = new RelayCommand(_ => ExecuteSafely(BuyCertificate));
+            UpdateCertificateCommand = new RelayCommand(_ => ExecuteSafely(UpdateCertificate));
+            DeleteCertificateCommand = new RelayCommand(_ => ExecuteSafely(DeleteCertificate));
+
+            CreateCardCommand = new RelayCommand(_ => ExecuteSafely(CreateCard));
+            UpdateLimitCommand = new RelayCommand(_ => ExecuteSafely(UpdateLimit));
+
+            Load();
+        }
+
+        // ================= DATA =================
+        public ObservableCollection<Certificate> Certificates { get; }
 
         private Certificate _selectedCertificate;
         public Certificate SelectedCertificate
@@ -28,8 +42,12 @@ namespace BankingSystem.WPF.ViewModels.Services
             set => SetProperty(ref _selectedCertificate, value);
         }
 
-        // Inputs
-        public decimal CertificatePrice { get; set; }
+        private decimal _certificatePrice;
+        public decimal CertificatePrice
+        {
+            get => _certificatePrice;
+            set => SetProperty(ref _certificatePrice, value);
+        }
 
         public List<CertificatePeriod> Periods { get; } =
             Enum.GetValues(typeof(CertificatePeriod))
@@ -43,7 +61,12 @@ namespace BankingSystem.WPF.ViewModels.Services
             set => SetProperty(ref _selectedPeriod, value);
         }
 
-        public decimal CreditLimit { get; set; }
+        private decimal _creditLimit;
+        public decimal CreditLimit
+        {
+            get => _creditLimit;
+            set => SetProperty(ref _creditLimit, value);
+        }
 
         private CreditCard _card;
         public CreditCard Card
@@ -56,54 +79,35 @@ namespace BankingSystem.WPF.ViewModels.Services
             }
         }
 
-        public string CardInfo
-        {
-            get
-            {
-                if (Card == null)
-                    return "No credit card found for this customer.";
+        public string CardInfo =>
+            Card == null
+                ? "No credit card found for this customer."
+                : $"Limit: {Card.CashLimit:C} | Expires: {Card.ExpiryDate:MM/yyyy}";
 
-                return $"Limit: {Card.CashLimit:C} | Expires: {Card.ExpiryDate:MM/yyyy}";
-            }
-        }
-
-        // Commands
+        // ================= COMMANDS =================
         public ICommand LoadCommand { get; }
         public ICommand BuyCertificateCommand { get; }
         public ICommand UpdateCertificateCommand { get; }
         public ICommand DeleteCertificateCommand { get; }
-
         public ICommand CreateCardCommand { get; }
         public ICommand UpdateLimitCommand { get; }
 
-        public ServicesViewModel(
-            ICertificateService certificateService,
-            ICreditCardService creditCardService,
-            BankingDbContext context)
-        {
-            _certificateService = certificateService;
-            _creditCardService = creditCardService;
-            _context = context;
-
-            Certificates = new ObservableCollection<Certificate>();
-
-            LoadCommand = new RelayCommand(_ => SafeExecute(Load));
-            BuyCertificateCommand = new RelayCommand(_ => SafeExecute(BuyCertificate));
-            UpdateCertificateCommand = new RelayCommand(_ => SafeExecute(UpdateCertificate));
-            DeleteCertificateCommand = new RelayCommand(_ => SafeExecute(DeleteCertificate));
-
-            CreateCardCommand = new RelayCommand(_ => SafeExecute(CreateCard));
-            UpdateLimitCommand = new RelayCommand(_ => SafeExecute(UpdateLimit));
-
-            Load();
-        }
-
-        // ================= SAFE WRAPPER =================
-        private void SafeExecute(Action action)
+        // ================= LOAD =================
+        private void Load()
         {
             try
             {
-                action();
+                var customerId = AppSession.CurrentCustomerId;
+                if (customerId == null) return;
+
+                Certificates.Clear();
+
+                var certs = _services.CertificateService.GetByCustomer(customerId.Value);
+                foreach (var c in certs)
+                    Certificates.Add(c);
+
+                Card = _services.CreditCardService.GetByCustomer(customerId.Value);
+                OnPropertyChanged(nameof(CardInfo));
             }
             catch (Exception ex)
             {
@@ -111,34 +115,13 @@ namespace BankingSystem.WPF.ViewModels.Services
             }
         }
 
-        // ================= LOAD =================
-        private void Load()
-        {
-            var customerId = AppSession.CurrentCustomerId;
-            if (customerId == null) return;
-
-            Certificates.Clear();
-
-            var certs = _context.Certificates
-                .Where(c => c.CustomerId == customerId)
-                .ToList();
-
-            foreach (var c in certs)
-                Certificates.Add(c);
-
-            Card = _creditCardService.GetByCustomer(customerId.Value);
-        }
-
-        // ================= CERTIFICATES =================
+        // ================= ACTIONS =================
         private void BuyCertificate()
         {
-            if (AppSession.CurrentCustomerId == null) return;
+            var id = AppSession.CurrentCustomerId;
+            if (id == null) return;
 
-            _certificateService.BuyCertificate(
-                AppSession.CurrentCustomerId.Value,
-                CertificatePrice,
-                SelectedPeriod);
-
+            _services.CertificateService.BuyCertificate(id.Value, CertificatePrice, SelectedPeriod);
             Load();
         }
 
@@ -146,44 +129,47 @@ namespace BankingSystem.WPF.ViewModels.Services
         {
             if (SelectedCertificate == null) return;
 
-            _certificateService.UpdateCertificate(
+            _services.CertificateService.UpdateCertificate(
                 SelectedCertificate.Id,
                 CertificatePrice,
                 SelectedPeriod);
-
-            Load();
+         
+        
+        Load();
+          
         }
 
         private void DeleteCertificate()
         {
             if (SelectedCertificate == null) return;
 
-            _certificateService.DeleteCertificate(SelectedCertificate.Id);
-
+            _services.CertificateService.DeleteCertificate(SelectedCertificate.Id);
             Load();
         }
 
-        // ================= CREDIT CARD =================
         private void CreateCard()
         {
-            if (AppSession.CurrentCustomerId == null) return;
+            var id = AppSession.CurrentCustomerId;
+            if (id == null) return;
 
-            _creditCardService.CreateCard(
-                AppSession.CurrentCustomerId.Value,
-                CreditLimit);
-
+            _services.CreditCardService.CreateCard(id.Value, CreditLimit);
             Load();
         }
 
         private void UpdateLimit()
         {
-            if (AppSession.CurrentCustomerId == null) return;
+            var id = AppSession.CurrentCustomerId;
+            if (id == null) return;
 
-            _creditCardService.UpdateLimit(
-                AppSession.CurrentCustomerId.Value,
-                CreditLimit);
-
+            _services.CreditCardService.UpdateLimit(id.Value, CreditLimit);
             Load();
+        }
+
+        // ================= SAFE =================
+        private void ExecuteSafely(Action action)
+        {
+            try { action(); }
+            catch (Exception ex) { ErrorHandler.Handle(ex); }
         }
     }
 }

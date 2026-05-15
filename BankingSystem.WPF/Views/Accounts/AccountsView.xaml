@@ -12,17 +12,14 @@
         </Grid.ColumnDefinitions>
 
         <!-- LEFT: ACCOUNTS LIST -->
-        <Border Style="{StaticResource DashboardCard}"
-                Margin="0,0,10,0">
+        <Border Style="{StaticResource DashboardCard}" Margin="0,0,10,0">
 
             <StackPanel>
 
-                <!-- TITLE -->
                 <TextBlock Text="My Accounts"
                            Style="{StaticResource SectionHeaderTextStyle}"
                            Margin="0,0,0,15"/>
 
-                <!-- LIST -->
                 <ListBox ItemsSource="{Binding Accounts}"
                          SelectedItem="{Binding SelectedAccount}"
                          Background="Transparent"
@@ -30,7 +27,6 @@
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-
                             <Border Padding="12"
                                     Margin="6"
                                     Background="{StaticResource SurfaceBrush}"
@@ -41,7 +37,7 @@
                                     <TextBlock Text="{Binding Id, StringFormat=Account ID: {0}}"
                                                Style="{StaticResource BodyTextStyle}"/>
 
-                                    <TextBlock Text="{Binding Balance, StringFormat=Balance: {0}}"
+                                    <TextBlock Text="{Binding Balance, StringFormat=Balance: {0:F2}}"
                                                Style="{StaticResource MutedTextStyle}"/>
 
                                     <TextBlock Text="{Binding AccountType, StringFormat=Type: {0}}"
@@ -50,7 +46,6 @@
                                 </StackPanel>
 
                             </Border>
-
                         </DataTemplate>
                     </ListBox.ItemTemplate>
 
@@ -61,17 +56,15 @@
         </Border>
 
         <!-- RIGHT: ACTION PANEL -->
-        <Border Grid.Column="1"
-                Style="{StaticResource DashboardCard}">
+        <Border Grid.Column="1" Style="{StaticResource DashboardCard}">
 
             <StackPanel Margin="5">
 
-                <!-- TITLE -->
                 <TextBlock Text="Account Actions"
                            Style="{StaticResource SectionHeaderTextStyle}"
                            Margin="0,0,0,15"/>
 
-                <!-- CREATE ACTIONS -->
+                <!-- CREATE -->
                 <Button Content="Create Saving Account"
                         Command="{Binding CreateSavingCommand}"
                         Margin="0,0,0,8"/>
@@ -93,20 +86,17 @@
                 <!-- TRANSACTIONS -->
                 <Button Content="Deposit"
                         Command="{Binding DepositCommand}"
-                        Margin="0,0,0,8"
-                        Background="{StaticResource PrimaryBrush}"/>
+                        Margin="0,0,0,8"/>
 
                 <Button Content="Withdraw"
                         Command="{Binding WithdrawCommand}"
-                        Margin="0,0,0,15"
-                        Background="{StaticResource SecondaryBrush}"/>
+                        Margin="0,0,0,15"/>
 
                 <Separator Margin="0,10"/>
 
                 <!-- CLOSE -->
                 <Button Content="Close Account"
                         Command="{Binding CloseAccountCommand}"
-                        Background="{StaticResource SurfaceBrush}"
                         Margin="0,10,0,0"/>
 
             </StackPanel>

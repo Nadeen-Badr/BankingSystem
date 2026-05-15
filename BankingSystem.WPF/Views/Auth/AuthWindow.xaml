@@ -6,12 +6,12 @@
         Width="900"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BackgroundBrush}"
-         WindowState="Maximized"
+        WindowState="Maximized"
         FontFamily="{StaticResource AppFont}">
 
     <Grid>
 
-        <!-- Center Auth Card -->
+        <!-- Center Card -->
         <Border Width="420"
                 Padding="35"
                 Background="{StaticResource SurfaceBrush}"
@@ -19,7 +19,6 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
 
-            <!-- Subtle elevation -->
             <Border.Effect>
                 <DropShadowEffect BlurRadius="25"
                                   ShadowDepth="2"
@@ -34,7 +33,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Optional Header (gives premium feel) -->
+                <!-- HEADER -->
                 <StackPanel Margin="0,0,0,20"
                             HorizontalAlignment="Center">
 
@@ -49,7 +48,7 @@
 
                 </StackPanel>
 
-                <!-- AUTH CONTENT -->
+                <!-- DYNAMIC CONTENT -->
                 <ContentControl Grid.Row="1"
                                 Content="{Binding CurrentView}"/>
 

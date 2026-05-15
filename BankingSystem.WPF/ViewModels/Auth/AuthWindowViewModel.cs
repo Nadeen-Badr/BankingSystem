@@ -1,9 +1,9 @@
-﻿using BankingSystem.Core.Data;
-using BankingSystem.Core.Services;
-using BankingSystem.Core.Services.Interfaces;
+﻿using BankingSystem.Core.Enums;
+using BankingSystem.WPF.Helpers;
+using BankingSystem.WPF.ViewModels.Accounts;
 using BankingSystem.WPF.ViewModels.Base;
 using BankingSystem.WPF.ViewModels.Customers;
-using BankingSystem.WPF.ViewModels.Accounts;
+using System;
 using System.Windows;
 
 namespace BankingSystem.WPF.ViewModels.Auth
@@ -11,14 +11,9 @@ namespace BankingSystem.WPF.ViewModels.Auth
     public class AuthWindowViewModel : ViewModelBase
     {
         private readonly Window _authWindow;
-
-        // 🔥 SINGLE SHARED SERVICES (IMPORTANT FIX)
-        private readonly BankingDbContext _context;
-        private readonly ILoggerService _logger;
-        private readonly ICustomerService _customerService;
+        private readonly AppServices _services;
 
         private object _currentView;
-
         public object CurrentView
         {
             get => _currentView;
@@ -28,15 +23,12 @@ namespace BankingSystem.WPF.ViewModels.Auth
         public AuthWindowViewModel(Window authWindow)
         {
             _authWindow = authWindow;
-
-            // ✅ INIT SERVICES ONCE
-            _context = new BankingDbContext();
-            _logger = new LoggingService();
-            _customerService = new CustomerService(_context, _logger);
+            _services = new AppServices();
 
             ShowRoleSelection();
         }
 
+        // ================= ENTRY SCREEN =================
         private void ShowRoleSelection()
         {
             var vm = new LoginViewModel();
@@ -48,32 +40,27 @@ namespace BankingSystem.WPF.ViewModels.Auth
             CurrentView = vm;
         }
 
-        // ================= ROLE HANDLING =================
+        // ================= ROLE SELECT =================
         private void OnRoleSelected(UserRole role)
         {
-            if (role == UserRole.Admin)
-                OpenMainWindow();
+            AppSession.SetRole(role);
 
-            else if (role == UserRole.Customer)
-                ShowExistingCustomer(); // OR NewCustomer depending on flow
+            // Admin OR Customer BOTH go to MainWindow
+            OpenMainWindow();
         }
 
-        // ================= CUSTOMER FLOWS =================
-
+        // ================= CUSTOMER FLOW =================
         private void ShowNewCustomer()
         {
-            var vm = new NewCustomerViewModel(_customerService, _logger);
+            var vm = new NewCustomerViewModel(_services);
 
             vm.RequestBackToLogin += ShowRoleSelection;
-
             CurrentView = vm;
         }
 
         private void ShowExistingCustomer()
         {
-            var vm = new ExistingCustomerViewModel(
-                new CustomerService(new BankingDbContext(), new LoggingService())
-            );
+            var vm = new ExistingCustomerViewModel(_services);
 
             vm.CustomerLoggedIn += OpenMainWindow;
             vm.RequestBack += ShowRoleSelection;
@@ -81,7 +68,7 @@ namespace BankingSystem.WPF.ViewModels.Auth
             CurrentView = vm;
         }
 
-        // ================= MAIN WINDOW =================
+        // ================= OPEN MAIN =================
         private void OpenMainWindow()
         {
             var main = new MainWindow
@@ -91,8 +78,7 @@ namespace BankingSystem.WPF.ViewModels.Auth
 
             main.Show();
 
-            _authWindow.Close();
+            _authWindow?.Close();
         }
-   
     }
 }

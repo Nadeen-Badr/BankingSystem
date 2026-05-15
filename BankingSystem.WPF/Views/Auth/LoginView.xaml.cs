@@ -20,6 +20,7 @@ namespace BankingSystem.WPF.Views.Auth
     /// </summary>
     public partial class LoginView : UserControl
     {
+        //No DataContext needed (it is injected from AuthWindowViewModel)
         public LoginView()
         {
             InitializeComponent();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BankingSystem.Core.Services;
+using BankingSystem.WPF.ViewModels.Accounts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,7 @@ namespace BankingSystem.WPF.Views.Accounts
         public AccountsView()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -24,5 +24,6 @@ namespace BankingSystem.WPF.Views.Customers
         {
             InitializeComponent();
         }
+
     }
 }

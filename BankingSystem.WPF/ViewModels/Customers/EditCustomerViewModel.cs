@@ -1,25 +1,30 @@
 ﻿using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
-using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.WPF;
 using BankingSystem.WPF.Commands;
+using BankingSystem.WPF.Helpers;
 using BankingSystem.WPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-
 namespace BankingSystem.WPF.ViewModels.Customers
 {
     public class EditCustomerViewModel : ViewModelBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly AppServices _services;
 
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string Address { get; set; }
-        public Gender Gender { get; set; }
+        public EditCustomerViewModel(AppServices services)
+        {
+            _services = services;
+
+            Genders = Enum.GetValues(typeof(Gender)).Cast<Gender>().ToList();
+
+            SaveCommand = new RelayCommand(_ => ExecuteSafely(Save));
+            CancelCommand = new RelayCommand(_ => RequestClose?.Invoke());
+
+            LoadCustomer();
+        }
 
         public List<Gender> Genders { get; }
 
@@ -28,51 +33,53 @@ namespace BankingSystem.WPF.ViewModels.Customers
 
         public event Action RequestClose;
 
-        public EditCustomerViewModel(ICustomerService customerService)
-        {
-            _customerService = customerService;
+        private string _name;
+        public string Name { get => _name; set => SetProperty(ref _name, value); }
 
-            Genders = Enum.GetValues(typeof(Gender))
-                          .Cast<Gender>()
-                          .ToList();
+        private int _age;
+        public int Age { get => _age; set => SetProperty(ref _age, value); }
 
-            LoadCustomer();
+        private string _address;
+        public string Address { get => _address; set => SetProperty(ref _address, value); }
 
-            SaveCommand = new RelayCommand(_ => Save());
-            CancelCommand = new RelayCommand(_ => RequestClose?.Invoke());
-        }
+        private Gender _gender;
+        public Gender Gender { get => _gender; set => SetProperty(ref _gender, value); }
 
         private void LoadCustomer()
         {
-            var customer = _customerService
-                .GetAllCustomers()
-                .FirstOrDefault(c => c.Id == AppSession.CurrentCustomerId);
+            var id = AppSession.CurrentCustomerId;
+            if (id == null) return;
 
-            if (customer == null)
-                return;
+            var customer = _services.CustomerService.GetCustomerById(id.Value);
+            if (customer == null) return;
 
             Name = customer.Name;
             Age = customer.Age;
             Address = customer.Address;
             Gender = customer.Gender;
-
-            OnPropertyChanged(string.Empty);
         }
 
         private void Save()
         {
-            var updatedCustomer = new Customer
+            var id = AppSession.CurrentCustomerId;
+            if (id == null) throw new InvalidOperationException();
+
+            _services.CustomerService.UpdateCustomer(new Customer
             {
-                Id = AppSession.CurrentCustomerId.Value,
+                Id = id.Value,
                 Name = Name,
                 Age = Age,
                 Address = Address,
                 Gender = Gender
-            };
-
-            _customerService.UpdateCustomer(updatedCustomer);
+            });
 
             RequestClose?.Invoke();
+        }
+
+        private void ExecuteSafely(Action action)
+        {
+            try { action(); }
+            catch (Exception ex) { ErrorHandler.Handle(ex); }
         }
     }
 }

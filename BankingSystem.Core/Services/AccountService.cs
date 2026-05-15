@@ -21,6 +21,10 @@ namespace BankingSystem.Core.Services
             _logger = logger;
         }
 
+        public AccountService()
+        {
+        }
+
         public void Deposit(int accountId, decimal amount)
         {
             var account = _context.Accounts.Find(accountId);
@@ -137,6 +141,7 @@ namespace BankingSystem.Core.Services
                 .Where(a => a.CustomerId == customerId)
                 .ToList();
         }
+
 
         public void Withdraw(Account account, int v)
         {

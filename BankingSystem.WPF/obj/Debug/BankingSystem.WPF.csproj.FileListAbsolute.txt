@@ -36,7 +36,6 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Admin\LogsView.g
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\AuthWindow.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Auth\LoginView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomerDashboardView.g.cs
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomersView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\EditCustomerView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\ExistingCustomerView.g.cs
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\NewCustomerView.g.cs
@@ -47,7 +46,6 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\GeneratedInternalTypeH
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF_MarkupCompile.cache
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF_MarkupCompile.lref
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\App.baml
-D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\Views\Customers\CustomersView.baml
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.g.resources
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.Properties.Resources.resources
 D:\Dev\Personal\BankingSystem\BankingSystem.WPF\obj\Debug\BankingSystem.WPF.csproj.GenerateResource.cache

@@ -13,5 +13,6 @@ namespace BankingSystem.Core.Services.Interfaces
         void UpdateCustomer(Customer customer);
         void CloseCustomer(int customerId);
         List<Customer> GetAllCustomers();
+        Customer GetCustomerById(int id);
     }
 }

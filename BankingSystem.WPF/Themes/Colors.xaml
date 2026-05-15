@@ -2,19 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- ================= COLORS ================= -->
+    <!-- Backgrounds -->
+    <Color x:Key="DarkBackgroundColor">#FFFFFFFF</Color>
 
-    <Color x:Key="DarkBackgroundColor">#FF2A363B</Color>
-    <Color x:Key="SurfaceColor">#FF33424A</Color>
+    <Color x:Key="SurfaceColor">#FFB8C8C2</Color>
 
-    <Color x:Key="PrimaryColor">#FFE84A5F</Color>
-    <Color x:Key="SecondaryColor">#FFFF847C</Color>
+    <!-- Primary system (deep green) -->
+    <Color x:Key="PrimaryColor">#FF2F5E50</Color>
 
-    <Color x:Key="SuccessColor">#FF99B898</Color>
-    <Color x:Key="HighlightColor">#FFFECEAB</Color>
+    <!-- Secondary accent (muted deep green-gray) -->
+    <Color x:Key="SecondaryColor">#FF4F7F70</Color>
 
-    <Color x:Key="TextPrimaryColor">#FFFFFFFF</Color>
-    <Color x:Key="TextSecondaryColor">#FFCCCCCC</Color>
+    <!-- Success (strong deep green) -->
+    <Color x:Key="SuccessColor">#FF1F5A40</Color>
 
+    <!-- Highlight / hover (subtle but darker tint) -->
+    <Color x:Key="HighlightColor">#FFC9D6D1</Color>
+
+    <!-- Text colors -->
+    <Color x:Key="TextPrimaryColor">#FF141414</Color>
+    <Color x:Key="TextSecondaryColor">#FF3F4F4A</Color>
     <!-- ================= BRUSHES ================= -->
 
     <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource DarkBackgroundColor}" />
@@ -66,7 +73,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Bd"
                                     Property="Background"
-                                    Value="#3A7AFE"/>
+                                    Value="#000000"/>
                         </Trigger>
 
                     </ControlTemplate.Triggers>
@@ -75,5 +82,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+
 
 </ResourceDictionary>

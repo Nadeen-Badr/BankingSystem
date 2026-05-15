@@ -15,5 +15,6 @@ namespace BankingSystem.Core.Services.Interfaces
         void UpdateCertificate(int certificateId, decimal price, CertificatePeriod period);
 
         void DeleteCertificate(int certificateId);
+        List<Certificate> GetByCustomer(int customerId);
     }
 }
