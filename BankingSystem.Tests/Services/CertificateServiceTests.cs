@@ -1,15 +1,13 @@
 ﻿using BankingSystem.Core.Enums;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
-using BankingSystem.Core.Services.Interfaces;
 using BankingSystem.Core.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 [TestClass]
 public class CertificateServiceTests : TestBase
 {
-    private ILoggerService _loggerMock;
+    private FakeLogger _logger;
     private CertificateService _service;
 
     [TestInitialize]
@@ -17,9 +15,11 @@ public class CertificateServiceTests : TestBase
     {
         base.Setup();
 
-        _loggerMock = new Mock<ILoggerService>().Object;
-        _service = new CertificateService(Context, _loggerMock);
+        _logger = new FakeLogger();
+        _service = new CertificateService(Context, _logger);
     }
+
+    // ---------------- HELPERS ----------------
 
     private Customer CreateCustomer()
     {
@@ -37,9 +37,10 @@ public class CertificateServiceTests : TestBase
         return customer;
     }
 
-    // ---------------- VALID ----------------
+    // ---------------- TESTS ----------------
+
     [TestMethod]
-    public void BuyCertificate_ValidData_ShouldCreateCertificate()
+    public void BuyCertificate_Valid_ShouldCreate()
     {
         var customer = CreateCustomer();
 
@@ -50,7 +51,6 @@ public class CertificateServiceTests : TestBase
         Assert.AreEqual(0.10m, result.InterestRate);
     }
 
-    // ---------------- INVALID PRICE ----------------
     [TestMethod]
     public void BuyCertificate_InvalidPrice_ShouldThrow()
     {
@@ -62,7 +62,6 @@ public class CertificateServiceTests : TestBase
         });
     }
 
-    // ---------------- INVALID PERIOD ----------------
     [TestMethod]
     public void BuyCertificate_InvalidPeriod_ShouldThrow()
     {
@@ -71,6 +70,15 @@ public class CertificateServiceTests : TestBase
         Assert.Throws<InvalidOperationBusinessException>(() =>
         {
             _service.BuyCertificate(customer.Id, 2000, (CertificatePeriod)999);
+        });
+    }
+
+    [TestMethod]
+    public void BuyCertificate_CustomerNotFound_ShouldThrow()
+    {
+        Assert.Throws<CustomerNotFoundException>(() =>
+        {
+            _service.BuyCertificate(999, 2000, CertificatePeriod.OneYear);
         });
     }
 }

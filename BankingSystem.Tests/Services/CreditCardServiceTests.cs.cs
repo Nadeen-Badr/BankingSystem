@@ -1,15 +1,13 @@
 ﻿using BankingSystem.Core.Enums;
-using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
-using BankingSystem.Core.Services.Interfaces;
+using BankingSystem.Core.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 [TestClass]
 public class CreditCardServiceTests : TestBase
 {
-    private ILoggerService _loggerMock;
+    private FakeLogger _logger;
     private CreditCardService _service;
 
     [TestInitialize]
@@ -17,9 +15,11 @@ public class CreditCardServiceTests : TestBase
     {
         base.Setup();
 
-        _loggerMock = new Mock<ILoggerService>().Object;
-        _service = new CreditCardService(Context, _loggerMock);
+        _logger = new FakeLogger();
+        _service = new CreditCardService(Context, _logger);
     }
+
+    // ---------------- HELPERS ----------------
 
     private Customer CreateCustomer()
     {
@@ -37,9 +37,10 @@ public class CreditCardServiceTests : TestBase
         return customer;
     }
 
-    // ---------------- VALID ----------------
+    // ---------------- TESTS ----------------
+
     [TestMethod]
-    public void CreateCard_ValidData_ShouldCreateCard()
+    public void CreateCard_Valid_ShouldCreate()
     {
         var customer = CreateCustomer();
 
@@ -50,7 +51,6 @@ public class CreditCardServiceTests : TestBase
         Assert.AreEqual(customer.Id, result.Id);
     }
 
-    // ---------------- INVALID LOW ----------------
     [TestMethod]
     public void CreateCard_LimitTooLow_ShouldThrow()
     {
@@ -62,7 +62,6 @@ public class CreditCardServiceTests : TestBase
         });
     }
 
-    // ---------------- INVALID HIGH ----------------
     [TestMethod]
     public void CreateCard_LimitTooHigh_ShouldThrow()
     {
@@ -74,7 +73,6 @@ public class CreditCardServiceTests : TestBase
         });
     }
 
-    // ---------------- DUPLICATE ----------------
     [TestMethod]
     public void CreateCard_Duplicate_ShouldThrow()
     {
@@ -88,7 +86,6 @@ public class CreditCardServiceTests : TestBase
         });
     }
 
-    // ---------------- UPDATE VALID ----------------
     [TestMethod]
     public void UpdateLimit_Valid_ShouldUpdate()
     {
@@ -102,7 +99,6 @@ public class CreditCardServiceTests : TestBase
         Assert.AreEqual(200000, card.CashLimit);
     }
 
-    // ---------------- UPDATE INVALID ----------------
     [TestMethod]
     public void UpdateLimit_Invalid_ShouldThrow()
     {
@@ -116,7 +112,6 @@ public class CreditCardServiceTests : TestBase
         });
     }
 
-    // ---------------- GET ----------------
     [TestMethod]
     public void GetByCustomer_ShouldReturnCard()
     {
@@ -128,5 +123,14 @@ public class CreditCardServiceTests : TestBase
 
         Assert.IsNotNull(card);
         Assert.AreEqual(120000, card.CashLimit);
+    }
+
+    [TestMethod]
+    public void UpdateLimit_CardNotFound_ShouldThrow()
+    {
+        Assert.Throws<CreditCardNotFoundException>(() =>
+        {
+            _service.UpdateLimit(999, 100000);
+        });
     }
 }

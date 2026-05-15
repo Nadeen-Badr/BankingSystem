@@ -1,8 +1,6 @@
-﻿using System;
-using BankingSystem.Core.Data;
-using BankingSystem.Core.Data;
+﻿using BankingSystem.Core.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using System.Data.Entity;
 
 public class TestBase
 {
@@ -11,13 +9,15 @@ public class TestBase
     [TestInitialize]
     public void Setup()
     {
+        Database.SetInitializer(new DropCreateDatabaseAlways<BankingDbContext>());
+
         Context = new BankingDbContext();
+        Context.Database.Initialize(true);
+    }
 
-        if (Context.Database.Exists())
-        {
-            Context.Database.Delete();
-        }
-
-        Context.Database.Create();
+    [TestCleanup]
+    public void Cleanup()
+    {
+        Context.Dispose();
     }
 }

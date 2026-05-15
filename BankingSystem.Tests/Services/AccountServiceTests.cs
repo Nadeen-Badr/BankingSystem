@@ -3,17 +3,14 @@ using BankingSystem.Core.Enums;
 using BankingSystem.Core.Exceptions;
 using BankingSystem.Core.Models;
 using BankingSystem.Core.Services;
-using BankingSystem.Core.Services.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 [TestClass]
 public class AccountServiceTests : TestBase
 {
-    private ILoggerService _loggerMock;
+    private FakeLogger _logger;
     private AccountService _service;
 
     [TestInitialize]
@@ -21,13 +18,12 @@ public class AccountServiceTests : TestBase
     {
         base.Setup();
 
-        _loggerMock = new Mock<ILoggerService>().Object;
-        _service = new AccountService(Context, _loggerMock);
+        _logger = new FakeLogger();
+        _service = new AccountService(Context, _logger);
     }
 
-    // -----------------------------
-    // Helpers
-    // -----------------------------
+    // ---------------- HELPERS ----------------
+
     private Customer CreateCustomer()
     {
         var customer = new Customer
@@ -62,11 +58,10 @@ public class AccountServiceTests : TestBase
         return account;
     }
 
-    // -----------------------------
-    // 1. DEPOSIT SUCCESS
-    // -----------------------------
+    // ---------------- TESTS ----------------
+
     [TestMethod]
-    public void Deposit_ValidAmount_ShouldIncreaseBalance()
+    public void Deposit_Valid_ShouldIncreaseBalance()
     {
         var account = CreateAccount(1000);
 
@@ -77,11 +72,8 @@ public class AccountServiceTests : TestBase
         Assert.AreEqual(1500, updated.Balance);
     }
 
-    // -----------------------------
-    // 2. DEPOSIT INVALID AMOUNT
-    // -----------------------------
     [TestMethod]
-    public void Deposit_InvalidAmount_ShouldThrowException()
+    public void Deposit_InvalidAmount_ShouldThrow()
     {
         var account = CreateAccount(1000);
 
@@ -91,11 +83,17 @@ public class AccountServiceTests : TestBase
         });
     }
 
-    // -----------------------------
-    // 3. WITHDRAW SUCCESS
-    // -----------------------------
     [TestMethod]
-    public void Withdraw_ValidAmount_ShouldDecreaseBalance()
+    public void Deposit_AccountNotFound_ShouldThrow()
+    {
+        Assert.Throws<AccountNotFoundException>(() =>
+        {
+            _service.Deposit(999, 100);
+        });
+    }
+
+    [TestMethod]
+    public void Withdraw_Valid_ShouldDecreaseBalance()
     {
         var account = CreateAccount(1000);
 
@@ -106,11 +104,8 @@ public class AccountServiceTests : TestBase
         Assert.AreEqual(600, updated.Balance);
     }
 
-    // -----------------------------
-    // 4. WITHDRAW INSUFFICIENT BALANCE
-    // -----------------------------
     [TestMethod]
-    public void Withdraw_InsufficientBalance_ShouldThrowException()
+    public void Withdraw_InsufficientBalance_ShouldThrow()
     {
         var account = CreateAccount(200);
 
@@ -120,11 +115,17 @@ public class AccountServiceTests : TestBase
         });
     }
 
-    // -----------------------------
-    // 5. CREATE SAVING ACCOUNT
-    // -----------------------------
     [TestMethod]
-    public void CreateSavingAccount_ShouldCreateAccount()
+    public void Withdraw_AccountNotFound_ShouldThrow()
+    {
+        Assert.Throws<AccountNotFoundException>(() =>
+        {
+            _service.Withdraw(999, 100);
+        });
+    }
+
+    [TestMethod]
+    public void CreateSavingAccount_ShouldCreate()
     {
         var customer = CreateCustomer();
 
@@ -134,11 +135,8 @@ public class AccountServiceTests : TestBase
         Assert.AreEqual(AccountType.Saving, account.AccountType);
     }
 
-    // -----------------------------
-    // 6. CREATE SALARY ACCOUNT
-    // -----------------------------
     [TestMethod]
-    public void CreateSalaryAccount_ShouldCreateAccount()
+    public void CreateSalaryAccount_ShouldCreate()
     {
         var customer = CreateCustomer();
 
@@ -148,11 +146,8 @@ public class AccountServiceTests : TestBase
         Assert.AreEqual(AccountType.Salary, account.AccountType);
     }
 
-    // -----------------------------
-    // 7. CLOSE ACCOUNT
-    // -----------------------------
     [TestMethod]
-    public void CloseAccount_ShouldRemoveAccount()
+    public void CloseAccount_ShouldRemove()
     {
         var account = CreateAccount();
 
@@ -163,33 +158,24 @@ public class AccountServiceTests : TestBase
         Assert.IsNull(deleted);
     }
 
-    // -----------------------------
-    // 8. GET ALL ACCOUNTS
-    // -----------------------------
     [TestMethod]
-    public void GetAllAccounts_ShouldReturnList()
+    public void GetAllAccounts_ShouldReturnCorrectCount()
     {
         CreateAccount();
         CreateAccount();
 
         var result = _service.GetAllAccounts();
 
-        Assert.IsTrue(result.Count >= 2);
+        Assert.AreEqual(2, result.Count);
     }
 
-    // -----------------------------
-    // 9. GET BY CUSTOMER
-    // -----------------------------
     [TestMethod]
-    public void GetAccountsByCustomer_ShouldReturnOnlyCustomerAccounts()
+    public void GetAccountsByCustomer_ShouldReturnOnlyThatCustomer()
     {
         var customer = CreateCustomer();
 
-        var account1 = new SavingAccount { CustomerId = customer.Id, Balance = 0 };
-        var account2 = new SalaryAccount { CustomerId = customer.Id, Balance = 0 };
-
-        Context.Accounts.Add(account1);
-        Context.Accounts.Add(account2);
+        Context.Accounts.Add(new SavingAccount { CustomerId = customer.Id, Balance = 0 });
+        Context.Accounts.Add(new SalaryAccount { CustomerId = customer.Id, Balance = 0 });
         Context.SaveChanges();
 
         var result = _service.GetAccountsByCustomer(customer.Id);
