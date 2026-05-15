@@ -21,19 +21,22 @@ namespace BankingSystem.Core.Services
             _logger = logger;
         }
 
-        public AccountService()
-        {
-        }
 
         public void Deposit(int accountId, decimal amount)
         {
             var account = _context.Accounts.Find(accountId);
 
             if (account == null)
+            {
+                _logger.Log($"DEPOSIT_FAILED | Account:{accountId} | Reason: Account not found");
                 throw new AccountNotFoundException();
+            }
 
             if (amount <= 0)
+            {
+                _logger.Log($"DEPOSIT_FAILED | Account:{accountId} | Reason: Invalid amount ({amount})");
                 throw new InvalidOperationBusinessException("Invalid deposit amount");
+            }
 
             account.Balance += amount;
 
@@ -46,7 +49,7 @@ namespace BankingSystem.Core.Services
 
             _context.SaveChanges();
 
-            _logger.Log($"DEPOSIT | Account:{accountId} | Amount:{amount}");
+            _logger.Log($"DEPOSIT_SUCCESS | Account:{accountId} | Amount:{amount} | Balance:{account.Balance}");
         }
 
         public void Withdraw(int accountId, decimal amount)
@@ -54,13 +57,22 @@ namespace BankingSystem.Core.Services
             var account = _context.Accounts.Find(accountId);
 
             if (account == null)
+            {
+                _logger.Log($"WITHDRAW_FAILED | Account:{accountId} | Reason: Account not found");
                 throw new AccountNotFoundException();
+            }
 
             if (amount <= 0)
+            {
+                _logger.Log($"WITHDRAW_FAILED | Account:{accountId} | Reason: Invalid amount ({amount})");
                 throw new InvalidOperationBusinessException("Invalid withdraw amount");
+            }
 
             if (account.Balance < amount)
+            {
+                _logger.Log($"WITHDRAW_FAILED | Account:{accountId} | Reason: Insufficient balance | Balance:{account.Balance} | Attempt:{amount}");
                 throw new InvalidOperationBusinessException("Insufficient balance");
+            }
 
             account.Balance -= amount;
 
@@ -73,9 +85,8 @@ namespace BankingSystem.Core.Services
 
             _context.SaveChanges();
 
-            _logger.Log($"WITHDRAW | Account:{accountId} | Amount:{amount}");
+            _logger.Log($"WITHDRAW_SUCCESS | Account:{accountId} | Amount:{amount} | Balance:{account.Balance}");
         }
-
         public List<Account> GetAllAccounts()
         {
             return _context.Accounts.ToList();
@@ -143,9 +154,6 @@ namespace BankingSystem.Core.Services
         }
 
 
-        public void Withdraw(Account account, int v)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }

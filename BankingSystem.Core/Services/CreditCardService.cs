@@ -22,12 +22,18 @@ namespace BankingSystem.Core.Services
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
+            {
+                _logger.Log($"CREATE_CREDIT_CARD_FAILED | Customer:{customerId} | Reason: Customer not found");
                 throw new CustomerNotFoundException();
+            }
 
             var existingCard = _context.CreditCards.Find(customerId);
 
             if (existingCard != null)
+            {
+                _logger.Log($"CREATE_CREDIT_CARD_FAILED | Customer:{customerId} | Reason: Already has card");
                 throw new InvalidOperationBusinessException("Customer already has a credit card");
+            }
 
             ValidateLimit(cashLimit);
 
@@ -42,26 +48,32 @@ namespace BankingSystem.Core.Services
             _context.CreditCards.Add(card);
             _context.SaveChanges();
 
-            _logger.Log($"CREATE_CREDIT_CARD | Customer:{customerId} | Limit:{cashLimit}");
+            _logger.Log($"CREATE_CREDIT_CARD_SUCCESS | Customer:{customerId} | Limit:{cashLimit} | Expiry:{card.ExpiryDate:yyyy-MM-dd}");
 
             return card;
         }
+
 
         public void UpdateLimit(int customerId, decimal newLimit)
         {
             var card = _context.CreditCards.Find(customerId);
 
             if (card == null)
+            {
+                _logger.Log($"UPDATE_CREDIT_CARD_FAILED | Customer:{customerId} | Reason: Card not found");
                 throw new CreditCardNotFoundException();
+            }
 
             ValidateLimit(newLimit);
 
+            var oldLimit = card.CashLimit;
             card.CashLimit = newLimit;
 
             _context.SaveChanges();
 
-            _logger.Log($"UPDATE_CREDIT_CARD_LIMIT | Customer:{customerId} | NewLimit:{newLimit}");
+            _logger.Log($"UPDATE_CREDIT_CARD_SUCCESS | Customer:{customerId} | OldLimit:{oldLimit} | NewLimit:{newLimit}");
         }
+
 
         public CreditCard GetByCustomer(int customerId)
         {
@@ -71,7 +83,10 @@ namespace BankingSystem.Core.Services
         private void ValidateLimit(decimal limit)
         {
             if (limit < 50000 || limit > 250000)
+            {
+                _logger.Log($"CREDIT_CARD_VALIDATION_FAILED | Limit:{limit} | Reason: Out of allowed range");
                 throw new InvalidOperationBusinessException("Invalid cash limit (50k - 250k)");
+            }
         }
     }
 }

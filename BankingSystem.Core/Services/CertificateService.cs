@@ -25,7 +25,10 @@ namespace BankingSystem.Core.Services
             var customer = _context.Customers.Find(customerId);
 
             if (customer == null)
+            {
+                _logger.Log($"BUY_CERTIFICATE_FAILED | Customer:{customerId} | Reason: Customer not found");
                 throw new CustomerNotFoundException();
+            }
 
             ValidatePrice(price);
             ValidatePeriod(period);
@@ -42,7 +45,7 @@ namespace BankingSystem.Core.Services
             _context.Certificates.Add(certificate);
             _context.SaveChanges();
 
-            _logger.Log($"BUY_CERTIFICATE | Customer:{customerId} | Price:{price}");
+            _logger.Log($"BUY_CERTIFICATE_SUCCESS | Customer:{customerId} | Price:{price} | Period:{period} | Interest:{certificate.InterestRate}");
 
             return certificate;
         }
@@ -52,7 +55,10 @@ namespace BankingSystem.Core.Services
             var existing = _context.Certificates.Find(certificateId);
 
             if (existing == null)
+            {
+                _logger.Log($"UPDATE_CERTIFICATE_FAILED | ID:{certificateId} | Reason: Not found");
                 throw new CertificateNotFoundException();
+            }
 
             ValidatePrice(price);
             ValidatePeriod(period);
@@ -63,20 +69,24 @@ namespace BankingSystem.Core.Services
 
             _context.SaveChanges();
 
-            _logger.Log($"UPDATE_CERTIFICATE | ID:{certificateId}");
+            _logger.Log($"UPDATE_CERTIFICATE_SUCCESS | ID:{certificateId} | NewPrice:{price} | NewPeriod:{period}");
         }
+
 
         public void DeleteCertificate(int certificateId)
         {
             var cert = _context.Certificates.Find(certificateId);
 
             if (cert == null)
+            {
+                _logger.Log($"DELETE_CERTIFICATE_FAILED | ID:{certificateId} | Reason: Not found");
                 throw new CertificateNotFoundException();
+            }
 
             _context.Certificates.Remove(cert);
             _context.SaveChanges();
 
-            _logger.Log($"DELETE_CERTIFICATE | ID:{certificateId}");
+            _logger.Log($"DELETE_CERTIFICATE_SUCCESS | ID:{certificateId}");
         }
 
         // ---------------- RULES ----------------
@@ -84,17 +94,23 @@ namespace BankingSystem.Core.Services
         private void ValidatePrice(decimal price)
         {
             if (price < 1000 || price % 1000 != 0)
+            {
+                _logger.Log($"CERTIFICATE_VALIDATION_FAILED | Reason: Invalid price {price}");
                 throw new InvalidOperationBusinessException("Price must be >= 1000 and multiple of 1000");
+            }
         }
 
         private void ValidatePeriod(CertificatePeriod period)
         {
             if (!Enum.IsDefined(typeof(CertificatePeriod), period))
+            {
+                _logger.Log($"CERTIFICATE_VALIDATION_FAILED | Reason: Invalid period {period}");
                 throw new InvalidOperationBusinessException("Invalid certificate period");
+            }
         }
 
-      
-             private decimal GetInterestRate(CertificatePeriod period)
+
+        private decimal GetInterestRate(CertificatePeriod period)
         {
             if (period == CertificatePeriod.OneYear)
                 return 0.10m;
@@ -104,9 +120,8 @@ namespace BankingSystem.Core.Services
 
             if (period == CertificatePeriod.FiveYears)
                 return 0.20m;
-            else {
-                throw new InvalidOperationBusinessException("Invalid certificate period");
-            };
+
+            throw new InvalidOperationBusinessException("Invalid certificate period");
         }
         public List<Certificate> GetByCustomer(int customerId)
         {

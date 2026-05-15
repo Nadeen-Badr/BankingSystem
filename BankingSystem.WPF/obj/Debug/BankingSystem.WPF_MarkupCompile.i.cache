@@ -16,5 +16,5 @@ D:\Dev\Personal\BankingSystem\BankingSystem.WPF\App.xaml
 171832014065
 MainWindow.xaml;Themes\Brushes.xaml;Themes\Buttons.xaml;Themes\Cards.xaml;Themes\Colors.xaml;Themes\TextBoxes.xaml;Themes\Typography.xaml;Views\Accounts\AccountsView.xaml;Views\Admin\LogsView.xaml;Views\Auth\AuthWindow.xaml;Views\Auth\LoginView.xaml;Views\Customers\CustomerDashboardView.xaml;Views\Customers\EditCustomerView.xaml;Views\Customers\ExistingCustomerView.xaml;Views\Customers\NewCustomerView.xaml;Views\Dashboard\DashboardView.xaml;Views\Services\ServicesView.xaml;
 
-False
+True
 

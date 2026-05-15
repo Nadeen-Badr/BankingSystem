@@ -23,7 +23,7 @@ public class CustomerService : ICustomerService
         _context.Customers.Add(customer);
         _context.SaveChanges();
 
-        _logger.Log($"CREATE_CUSTOMER | ID:{customer.Id} | Name:{customer.Name}");
+        _logger.Log($"CREATE_CUSTOMER_SUCCESS | ID:{customer.Id} | Name:{customer.Name}");
 
         return customer;
     }
@@ -34,7 +34,10 @@ public class CustomerService : ICustomerService
         var existing = _context.Customers.Find(customer.Id);
 
         if (existing == null)
+        {
+            _logger.Log($"UPDATE_CUSTOMER_FAILED | ID:{customer.Id} | Reason: Not found");
             throw new CustomerNotFoundException(customer.Id);
+        }
 
         existing.Name = customer.Name;
         existing.Age = customer.Age;
@@ -43,7 +46,7 @@ public class CustomerService : ICustomerService
 
         _context.SaveChanges();
 
-        _logger.Log($"UPDATE_CUSTOMER | ID:{customer.Id}");
+        _logger.Log($"UPDATE_CUSTOMER_SUCCESS | ID:{customer.Id} | Name:{customer.Name}");
     }
 
     // ================= DELETE =================
@@ -52,13 +55,17 @@ public class CustomerService : ICustomerService
         var customer = _context.Customers.Find(customerId);
 
         if (customer == null)
+        {
+            _logger.Log($"CLOSE_CUSTOMER_FAILED | ID:{customerId} | Reason: Not found");
             throw new CustomerNotFoundException(customerId);
+        }
 
         _context.Customers.Remove(customer);
         _context.SaveChanges();
 
-        _logger.Log($"CLOSE_CUSTOMER | ID:{customerId}");
+        _logger.Log($"CLOSE_CUSTOMER_SUCCESS | ID:{customerId} | Name:{customer.Name}");
     }
+
 
     // ================= READ =================
     public List<Customer> GetAllCustomers()
@@ -69,12 +76,21 @@ public class CustomerService : ICustomerService
     {
         try
         {
-            return _context.Customers
-                .FirstOrDefault(c => c.Id == id);
+            var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+
+            if (customer == null)
+            {
+                _logger.Log($"GET_CUSTOMER_FAILED | ID:{id} | Reason: Not found");
+                return null;
+            }
+
+            _logger.Log($"GET_CUSTOMER_SUCCESS | ID:{id}");
+
+            return customer;
         }
         catch (Exception ex)
         {
-            _logger.Log($"GetCustomerById failed: {ex.Message}");
+            _logger.Log($"GET_CUSTOMER_ERROR | ID:{id} | Exception:{ex.Message}");
             throw;
         }
     }
